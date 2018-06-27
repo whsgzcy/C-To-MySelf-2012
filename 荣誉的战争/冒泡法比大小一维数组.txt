@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+void main()
+{
+	int a[] = {1, 2, 3, 666, 5, 6, 7, 88, 9, 10};
+	int t, i, j;
+
+	for(i = 0;i < 10;i++)
+	for(j = 0;j < 9 - i;j++)
+		if(a[i] > a[i + 1])
+		{
+			t = a[i];
+			a[i] = a[i + 1];
+			a[i + 1] = t;
+		}
+		for(i = 9;i >= 0;i--)//这句语句的功能是将数组a[i]输出
+			printf("%d ", a[i]);
+}

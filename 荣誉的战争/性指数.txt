@@ -1,0 +1,19 @@
+#include <stdio.h>
+/*ÐÔÖ¸Êý*/
+/*3025 = (30 + 25) ^ 2*/
+
+void main()
+{
+	int n, ab, cd;
+
+	for(n = 1000; n < 10000; n++)
+	{
+		ab = n / 100;
+		cd = n % 100;
+
+		if(n == ab * ab + 2 * ab * cd + cd * cd)
+		{
+			printf("%d ", n);
+		}
+	}
+}

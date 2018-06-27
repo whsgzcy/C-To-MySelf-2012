@@ -1,0 +1,16 @@
+int fun(int n)
+{
+	int i;
+
+	for(i = 2; i < n; i++)
+	{
+		if(n % i == 0)
+			break;
+	}
+	if(i == n)
+		printf("shi");
+	else
+		printf("buhsi");
+		return n;				
+}素数的子函数
+

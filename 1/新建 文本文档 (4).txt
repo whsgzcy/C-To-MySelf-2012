@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+void main()
+{
+	int a[55];
+	int i = 0;
+
+	while (getchar(a)=='\n');
+	{
+		i++;
+        printf("%d",i);   
+		
+			break;
+	printf("%d",i);      
+	}
+}

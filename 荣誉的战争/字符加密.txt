@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+void main()
+{
+	char c;
+	int k;
+
+	printf("输入k\n");
+	scanf("%d",&k);
+	getchar();
+	printf("输入一段英文字符\n");
+	do
+	{
+		c=getchar();
+		if(c>='a'&&c<='z'||c>='A'&&c<='Z')
+		{
+			c = k + c;
+		}
+		putchar(c);
+
+	}while(c != '\n');
+	
+}

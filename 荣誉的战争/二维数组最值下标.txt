@@ -1,0 +1,23 @@
+#include <stdio.h>//二维数组最大值，下标
+
+void main()
+{
+	int a[3][4] = {{1,2,3,4},{5,6,7,8},{1,1,1,1}};
+	int i,j,max,h,l;
+
+	max = a[0][0];//初始化
+
+	for(i = 0; i < 3; i++)
+	{
+		for(j = 0; j < 4; j++)
+		{
+			if(a[i][j] > max)
+			{
+				max = a[i][j];
+				h = i;
+				l = j;
+			}
+		}
+	}
+		printf("a[%d][%d]max=%d\n",h+1,l+1,max);
+}

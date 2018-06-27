@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+void main() 
+{ 
+    int A, i, B, n; 
+
+    for(A = 1; A < 3000; A++)        
+    {        
+        for(B = 0, i = 1; i <= A / 2; i++)//若是大于a的一半的话，则不符合条件
+		{							
+            if(A % i == 0)
+			{
+				B = B + i;//b总值
+			}
+		}							
+        for(n = 0, i = 1; i <= B / 2; i++)
+		{
+            if(B % i == 0)
+			{
+				n = n + i;
+			}
+		}
+        if(n == A && A > B)
+		{
+            printf("%d++%d\n", A, B);
+		}
+	}
+		printf("\n");
+}
+   
+
+
+	

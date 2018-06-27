@@ -1,0 +1,268 @@
+
+1、将三个整数排序
+#include <stdio.h>//输入三个整数，排序
+
+void main()
+{
+	void swap(int * p2);//函数调用
+
+	int a[3];
+	int * p1, * p2, t;//定义两个指针
+
+	printf("请输入三个整数:\n");
+	
+	for(t = 0; t < 3; t++)
+	{
+		scanf("%d", &a[t]);
+	}//数组的输入
+	
+	for(p1 = &a[2]; p1 > &a[0]; p1--)//循环3次
+	{+
+		for(p2 = &a[0]; p2 < p1; p2++)
+		{
+			if(* p2 > * (p2 + 1))
+			swap(p2);
+		}
+	}
+	for(p2 = a; p2 < &a[3]; p2++)
+		printf("%d ", * p2);
+	printf("\n");
+}
+void swap(int * p2)//常用的子函数
+{
+	int t;
+
+	t = * p2;
+	* p2 = * (p2 + 1);
+	* (p2 + 1) = t;
+}
+2、三个字符串，比较，输出
+#include <stdio.h>//输入三个字符串，指针排序
+#include <string.h>
+
+void main()
+{
+	char str[3][80];//定义一个二维字符数组
+	char strtmp[80];
+	int i, j;//循环变量
+
+	for(i = 0; i < 3 ; i++)
+	{
+		scanf("%s",str + i);//输入三行的字符数组
+	}
+	for(j = 0;j < 3;j++)
+	{
+	for(i = j + 1; i < 3; i++)//循环2次
+	{
+		if(strcmp(str[j], * (str + i)) > 0)//每行进行比较
+		{
+			strcpy(strtmp, str[j]);
+			strcpy(str[j], str[i]);
+			strcpy(str[i], strtmp);
+		}
+	}
+	}
+	for(i = 0; i < 3; i++)//输出
+	{
+		printf("%s\n",  * (str + i));
+	}
+}
+3、输入一段字符串，计算长度
+#include <stdio.h>//输入三个字符串，指针排序
+
+fun(char * str)//定义一个指针数组
+{
+	int n = 0;
+
+	while(* str != '\0')
+	{
+		n++;
+		str++;
+	}
+	return n;
+}
+void main()
+{
+	int fun(char * str);//函数申明
+
+	char str[80];
+
+	gets(str);
+
+	printf("l=%d\n", fun(str));
+}
+4、计算空格字母及其他字符的长度
+#include <stdio.h>//输入一段字符，输出其数字空格和其他字符的个数
+#include <string.h>
+
+void main()
+{
+	int n1 = 0, n2 = 0, n3 = 0, n4 = 0, j = 0, i;
+	char c[100];
+
+	printf("请输入一段字符串\n");
+
+	gets(c);
+	j = strlen(c);//计算字符串长度
+
+	for(i = 0; i < j; i++)
+	{
+		if(c[i] >= 48 && c[i] <= 57)//此时一定要注意ASCII码问题
+		{
+			n1 = n1 + 1;
+		}
+		else if(c[i] >= 'a' && c[i] <= 'z' )
+		{
+			n2 = n2 + 1;
+		}
+		else if(c[i] == ' ')
+		{
+			n3 = n3 + 1;
+		}
+		else
+			n4 = n4 + 1;
+	}
+	printf("数字%d\n字母%d\n空格%d\n其他字符%d\n", n1, n2, n3, n4);
+	getch();
+}
+#include <stdio.h>//输入一段字符，输出其数字空格和其他字符的个数
+
+void main()
+{
+	int n1 = 0, n2 = 0, n3 = 0, n4 = 0, j = 0;
+	char c[100], * p;
+
+	printf("请输入一段字符串\n");
+
+	gets(c);
+
+	for(p = c; * p != '\0'; p++)
+	{
+		if(* p >= 48 && * p <= 57)//此时一定要注意ASCII码问题
+		{
+			n1 = n1 + 1;
+		}
+		else if(* p >= 'a' && * p <= 'z' )
+		{
+			n2 = n2 + 1;
+		}
+		else if(* p == ' ')
+		{
+			n3 = n3 + 1;
+		}
+		else
+			n4 = n4 + 1;
+	}
+	printf("数字%d\n字母%d\n空格%d\n其他字符%d\n", n1, n2, n3, n4);
+	getch();
+}
+#include <stdio.h>//输入一段字符，输出其数字空格和其他字符的个数
+
+void main()
+{
+	int num(char * p);//函数申明
+	int n1 = 0, n2 = 0, n3 = 0, n4 = 0;
+	char c[100];
+
+	printf("请输入一段字符串\n");
+
+	gets(c);
+
+	num(c);
+
+	printf("数字%d\n字母%d\n空格%d\n其他字符%d\n", n1, n2, n3, n4);
+	getch();
+}
+int num(char * p)
+{
+	int n1 = 0, n2 = 0, n3 = 0, n4 = 0;
+
+		for(; * p != '\0'; p++)
+	{
+		if(* p >= 48 && * p <= 57)//此时一定要注意ASCII码问题
+		{
+			n1 = n1 + 1;
+		}
+		else if(* p >= 'a' && * p <= 'z' )
+		{
+			n2 = n2 + 1;
+		}
+		else if(* p == ' ')
+		{
+			n3 = n3 + 1;
+		}
+		else
+			n4 = n4 + 1;
+	}
+		return 0;
+}
+4,输出二维数组中每列的最大值
+#include <stdio.h>//3*4数组，每列最小值
+
+void main()
+{
+	int a[4][4] = {{9, 2, 3, 4}, {1, 2, 4, 5}, {2, 3, 5, 5}, {8, 8, 8, 8}} ,b[4];
+	int i ,j, k;
+
+	for(i = 0; i < 4; i++)
+	{
+		k = a[0][i];//初始化
+		for(j = 0; j < 4; j++)
+		{
+			if(a[j][i] > k)
+			{
+				k = a[j][i];
+			}
+		}
+		b[i] = k;//此处赋值
+	}
+	for(i = 0; i < 4; i++)
+	printf("%d ", b[i]);
+	getch();
+}
+
+#include <stdio.h>//3*4数组，每列最小值
+
+void fun(int tt[][4], int *pp)
+{
+	int i,j,k;
+	for (i = 0; i < 4; i++)
+	{
+	    k=tt[0][i];
+		for (j = 0; j < 2; j++)
+		{
+			if (tt[j][i] > tt[j+1][i])
+			{
+
+				k=tt[j+1][i];
+			}
+		}
+        pp[i]=k;
+	}
+}
+void main()
+{
+
+	int a[3][4] = {{1, 2, 3, 4}, {2, 3, 4, 5,}, {3, 4, 5, 6}};
+	int b[4];
+	int i;
+	fun(a, b);
+	for (i = 0; i < 4; i++)
+	{
+		printf("%d ", b[i]);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

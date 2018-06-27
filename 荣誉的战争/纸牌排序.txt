@@ -1,0 +1,119 @@
+#include <stdio.h>
+#include <string.h>
+#include <malloc.h>
+
+struct stu
+{
+	char str[5];
+	struct stu *next;
+};
+
+int n;
+
+struct stu * creat()
+{
+	struct stu * head;
+	struct stu * p1, * p2;
+
+	head = NULL;
+	n = 0;
+
+	p1 = p2 = (struct stu *) malloc (sizeof (struct stu));
+
+	strcpy(p1 ->str ,"1");
+
+	while(n < 13)
+	{
+		n = n + 1;
+
+		if(n == 1)
+
+			head = p1;
+
+		else
+
+			p2 ->next = p1;
+
+		p2 = p1;
+
+		p1 = (struct stu *) malloc (sizeof (struct stu));
+
+        strcpy(p1 ->str ,"1");
+	}
+
+	p2 ->next = head;
+
+	return head;
+}
+
+void fun(struct stu * head, char a[13][5])
+{
+	struct stu * p;
+	int i, j = 0;
+
+	p = head;
+	n = 0;
+
+	for(i = 0; i < 10000;)
+	{
+		if((strcmp(p ->str, "1")) != 0)
+		{
+			p = p ->next;
+		}
+
+		else
+		{
+			i = i + 1;
+
+			if(i % 2 == 0)
+			{
+				strcpy(p -> str ,a[j]);
+				p = p ->next;
+				j++;
+			}
+
+			else 
+
+				p = p ->next;
+		}
+
+		if(j == 13)
+
+			break;
+	}
+
+	return head;
+
+}
+
+void print(struct stu * head)
+{
+	struct stu * p;
+
+	p = head;
+	n = 0;
+
+	while(n < 13)
+	{
+		n = n + 1;
+
+		printf("%-4s", p -> str);
+
+		p = p ->next;
+	}
+}
+
+void main()
+{
+	char a[13][5] = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
+
+	struct stu * head;
+
+	head = creat();
+
+	fun(head, a);
+
+	print(head);
+
+	printf("\n\n"); //用循环链表，进行排序。
+}

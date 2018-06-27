@@ -1,0 +1,74 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include <malloc.h>
+
+typedef struct BiTNode
+{
+	char data;
+    struct BiTNode *lchild,*rchild;
+}BiTNode,*BiTree;
+
+void CreatBiTree(BiTree *T)
+{//前序法创建二叉树
+	char ch;
+	if((ch=getchar())=='#')
+		*T=NULL;
+	else
+	{
+		*T=(BiTNode*)malloc(sizeof(BiTNode));
+		if(!*T)
+			exit(1);
+		(*T)->data=ch;
+		CreatBiTree(&(*T)->lchild);
+		CreatBiTree(&(*T)->rchild);
+	}
+}
+
+void PreTravel(BiTree T)
+{//前序遍历
+	if(T)
+	{  
+		printf("%c",T->data);
+		PreTravel(T->lchild);
+		PreTravel(T->rchild);
+	}
+}
+
+/*中序遍历算法*/
+void InOrderTraverse(BiTree T)
+{
+	if(T == NULL)
+		return;
+	InOrderTraverse(T -> lchild);
+	printf("%c", T -> data);
+	InOrderTraverse(T -> rchild);
+}
+
+/*后序遍历算法*/
+void PostOrderTraverse(BiTree T)
+{
+	if(T == NULL)
+		return;
+	PostOrderTraverse(T -> lchild);
+	PostOrderTraverse(T -> rchild);
+	printf("%c", T -> data);
+}
+
+
+void main()
+{ 
+	BiTree T;
+	printf("please input the bitree:\n" );
+    CreatBiTree(&T);
+	printf("前序遍历是  ");
+	PreTravel(T);
+	printf("\n");
+	printf("中序遍历是  ");
+	InOrderTraverse(T);
+	printf("\n");
+	printf("后序遍历是  ");
+	PostOrderTraverse(T);
+	printf("\n");
+	printf("\n");
+}
+

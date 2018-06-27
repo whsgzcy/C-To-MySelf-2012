@@ -1,0 +1,105 @@
+#include <stdio.h>
+
+地址符的交换
+
+ swap(int *a,int *b)
+{
+	int t;
+	t = *a;
+	*a = *b;
+	*b = t;
+}
+void main()
+{
+	int a, b;
+	scanf("%d%d",&a,&b);
+    printf("%d%d\n",a , b);
+    swap( &a,&b);
+	printf("%d%d\n",a , b);
+}
+2 #include <stdio.h>
+
+void th(int ,int , int);
+
+main()
+{
+	int a = 0, b = 0;
+		int p;
+	printf("请输入一串数:");
+   scanf("%d",&p);
+   th(p, &a, &b);
+   printf("%d %d %d\n",p,a,b);
+}
+void th(int a,int *b, int*c)
+{
+	*c = a % 10;   
+	while(a > 10);
+	{
+		a = a / 10;
+	}
+		*b = a;
+}
+
+3动态分配
+-void *malloc(size_t size);
+-void free(void*memblock);
+#include <stdio.h>
+
+void main()
+{
+	int *p, *tmp;
+	int i,_count;
+
+	printf("请输入同学的人数:\n");
+	scanf("%d",&_count);
+	p = malloc(_count*sizeof(int));
+	printf("请输入同学们的成绩:\n");
+	tmp = p;
+	for(i = 0;i < _count; i++)
+	{
+		scanf("%d", tmp++);
+	}
+	tmp = p;
+	printf("同学们的成绩是: \n");
+	for(i = 0;i <_count; i++)
+	{
+		printf("%d", *tmp++);
+	}
+	free(p);
+	p = NULL;
+	tmp = NULL;
+}
+
+8.
+#include  <stdio.h>
+void input(int b[10],int n)
+{
+   int i;
+   for(i=0;i<n;i++)
+   printf("%d",&b[i]);
+}
+int maxa(int b[10],int n)
+{
+	int c=b[0],i;
+	for(i=0;i<n;i++);
+	if(b[i]>c)
+	c=b[i];
+	return c;
+}
+void print(int b[10],int n)
+{
+	int i;
+    for(i=0;i<n;i++)
+	printf("%d",b[i]);
+}
+
+void main()
+{
+   int b[10];
+   int max;
+   input(b, 10);
+   max = maxa(b,10);
+   printf("\n Array max is %d \n",max);
+   printf("The array is :\n");
+   printf("%d", b);
+}

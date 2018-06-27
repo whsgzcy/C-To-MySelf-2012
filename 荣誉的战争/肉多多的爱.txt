@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void main()
+{
+	int i, magic, rand();
+
+	printf("请任意输入一个100以内的整数\n");
+	scanf("%d",&i);
+	srand(time(NULL));
+	magic = rand()%100+1;
+	while(i != magic)
+	{
+	if(i > magic)
+		printf("肉多多\n");
+	else if(i < magic)
+		printf("银丫头\n");
+	scanf("%d",&i);
+	}
+		printf("肉多多爱银丫头\n");
+
+}

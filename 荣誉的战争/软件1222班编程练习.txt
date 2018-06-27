@@ -1,0 +1,89 @@
+编程范围：指针，数据结构 
+
+1,用指针将两个数交换并在主函数中输出； 
+
+2，将十进制数转化为八进制;(栈）
+
+
+#include <stdio.h>
+#define maxsize 100
+
+typedef int dataType;
+
+typedef struct 
+{
+	dataType data[maxsize];
+	int length;
+}sqlist;
+
+void createlist(sqlist *L)
+{
+	int i;
+
+	printf("请输入代建的表长：");
+
+	scanf("%d", & L ->length);
+
+	for(i = 0; i < L ->length; i ++)
+	{
+		scanf("%d", &L ->data[i]);
+	}
+
+	printf("\n已成功建立顺序表！请按任意键结束！\n");
+}
+
+void print(sqlist L)
+{
+	int i;
+
+	printf("\n\n输出表中的元素： ");
+
+	for(i = 0; i < L.length; i ++)
+	{
+		printf("%d ", L.data[i]);
+	}
+
+	printf("\n\n请按任意键结束。\n");
+}
+
+sqlist dellist(sqlist L, int i)
+{
+	dataType x;
+
+	if(i < 1 || i > L.length)
+	{
+		printf("抱歉！你删除的位置有误\n\n");
+	}
+
+	else
+	{
+		x = L.data[i - 1];
+
+		for(; i < L.length - 1; i ++)
+		{
+			L.data[i - 1] = L.data[i];
+		}
+
+		L.length--;
+
+		printf("\n%d 已被删除。", x);
+	}
+
+	return L;
+}
+
+void main()
+{
+	int i;
+	sqlist L;
+
+	createlist(&L);
+
+	printf("\n\n请输入你想要删除元素的位置 i ：");
+
+	scanf("%d", &i);
+
+	L = dellist(L, i);
+
+	print(L);
+}

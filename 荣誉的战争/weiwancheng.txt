@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+void main()
+{
+	char str1[20];
+	char str2[20];
+
+	printf("ÇëÊäÈëÒ»´®×ÖÄ¸\n");
+	gets(str1);
+	while(str1 != '\0')
+	{
+	if(str1 >= 'a' && str1 <= 'z')
+	{
+	str1 = str1 - 32;
+	}
+	puts(str1);
+}
+
+
+
+	

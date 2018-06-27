@@ -1,0 +1,12 @@
+#include <stdio.h>
+
+void main()
+{
+	int a[10];
+	int * p, i;
+
+	for(i = 0;i < 10;i++)
+		scanf("%d", &a[i]);
+	for(p = a;p < (a + 10);p++)//进行十次循环，此时的p++能提高程序运行的效率
+		printf("%d ", *p);
+}

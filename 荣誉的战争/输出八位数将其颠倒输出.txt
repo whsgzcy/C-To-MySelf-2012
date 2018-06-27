@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+long  fun(long t)
+{
+	long  p = 0;
+	while(t != 0)
+	{
+		p = 10 * p+t % 10;//假如输出一个数123456 ，每一次的循环都能得出这个数的最后一个数，当t=0时停止
+	    t = t / 10;
+	}
+	return p;
+}
+
+void main()
+{
+	long x, y;
+	scanf("%ld", &x);
+	y = fun(x);
+	printf("y=%ld\n", y);
+}
+
+	

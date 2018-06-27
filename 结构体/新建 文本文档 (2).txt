@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+struct student
+{
+	int num;
+	char name[20];
+	char sex;
+	int age;
+	float score;
+};
+void print_1(struct student stu)
+{
+     printf("学号:%d\t姓名:%s\t", stu.num, stu.name);
+	 printf("性别:%c\t成绩:%.2f\n", stu.sex, stu.score);
+}
+
+ void  print_2(struct student *pstu)
+{
+      printf("学号:%d\t姓名:%s\t", (*pstu).num, (*pstu).name);
+	  printf("性别:%c\t成绩:%.2f\n", (*pstu).sex, (*pstu).score);
+	  printf("学号:%d\t姓名:%s\t",pstu->num, pstu->name);
+		printf("性别:%c\t成绩:%.2f\n", pstu->sex, pstu->score);
+		getch();
+}
+
+ main()
+{
+	struct student stu;
+	struct student *pstu;
+	stu.num = 110;
+	strcpy(stu.name,"y");
+	stu.sex = 'm';
+	stu.age = 20;
+	stu.score = 90;
+	pstu = &stu;
+    print_1(stu);
+	print_2(pstu);
+ }
+
+	

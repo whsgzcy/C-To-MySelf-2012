@@ -1,0 +1,62 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct student
+{
+	int num;
+	char name[20];
+	char sex;
+	int age;
+	float score;
+	struct student *next;
+};
+struct student*creat()
+{
+	struct student *head = NULL;
+    struct student *pnew = NULL;
+    struct student *pend = NULL;
+
+	pnew = (struct student*)malloc(sizeof(struct student));
+    printf("请输入学号、姓名、成绩:\n");
+	scanf("%d%s%f",&pnew->num,pnew->name,&pnew->score);
+	
+	while(pnew->num != 0)
+	{
+		if(head == NULL)
+			head=pnew;
+		else 
+			pend->next=pnew;
+		pend = pnew;
+		pnew = (struct student*)malloc(sizeof(struct student));
+		printf("请输入学号、姓名、成绩:\n");
+		scanf("%d%s%f",&pnew->num,pnew->name,&pnew->score);
+	}
+	free(pnew);
+	pend->next=NULL;
+	return head;
+}
+void print(struct student *head)
+{
+	struct student *p;
+	p = head;
+	if(NULL == p)
+		return;
+	printf("\n学号\t姓名\t成绩\n");
+	do
+	{
+		printf("%d\t%s\t%.2f\n",p->num,p->name,p->score);
+		p = p->next;
+	}while(p != NULL);
+}
+
+void main()
+{
+	struct student *head = NULL;
+	head = creat();
+	print(head);
+	getch();
+}
+
+
+
+

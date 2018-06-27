@@ -1,0 +1,11 @@
+#include <stdio.h>
+
+void main()
+{
+ int i, j, k;
+ int mut;
+ printf("请分别输入3个数：\n");
+ scanf("%d%d%d", &i, &j, &k);
+ mut = i * j * k;
+ printf("这三个数的积：%d %d %f\n",  mut);
+}

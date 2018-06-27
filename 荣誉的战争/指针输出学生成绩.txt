@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+void main()
+{	
+	float *search(float (*p)[4], int n);
+
+	float score[3][4] = {{22, 33, 44, 44}, {22, 44, 55, 55}, {66, 66, 77, 99}};
+
+	float *p;
+	int i, m, n;
+
+	printf("请输入第几个学生\n");
+	
+	scanf("%d", &m);
+	
+	p = search(score, m);
+
+	for(i = 0; i < 4; i++)
+		printf("%.2f ", *(p + i));
+}
+
+float *search(float (*p)[4], int n)
+{
+	float *pt;
+
+	pt = *(p + n);
+
+	return pt;
+}
+

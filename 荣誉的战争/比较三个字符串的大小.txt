@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <string.h>
+
+void main()
+{
+	char str1[80], str2[80], str3[80];
+
+	printf("请输入第一个字符串str1\n");
+	gets(str1);
+	printf("请输入第二个字符串str2\n");
+	gets(str2);
+	printf("请输入第三个字符串str3\n");
+	gets(str3);
+
+	if(strcmp(str1, str2) > 0 && strcmp(str1, str3) > 0 &&strcmp(str2, str3) > 0)
+		printf("%s > %s >  %s ", str1, str2, str3 );
+	if(strcmp(str1, str2) > 0 && strcmp(str1, str3) > 0 &&strcmp(str3, str2) > 0)
+		printf("%s > %s >  %s ", str1, str3, str2 );
+	if(strcmp(str2, str1) > 0 && strcmp(str2, str3) > 0 &&strcmp(str1, str3) > 0)
+		printf("%s > %s >  %s ", str2, str1, str3 );
+	if(strcmp(str2, str1) > 0 && strcmp(str2, str3) > 0 &&strcmp(str3, str1) > 0)
+		printf("%s > %s >  %s ", str2, str3, str1 );
+	if(strcmp(str3, str1) > 0 && strcmp(str3, str2) > 0 &&strcmp(str2, str1) > 0)
+		printf("%s > %s >  %s ", str3, str2, str1 );
+	if(strcmp(str3, str1) > 0 && strcmp(str3, str2) > 0 &&strcmp(str1, str2) > 0)
+		printf("%s > %s >  %s ", str3, str1, str2 );
+}

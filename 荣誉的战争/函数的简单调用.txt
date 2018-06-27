@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+float f_aver(float a, float b)
+{
+
+	return (a + b) / 2;
+}
+
+void main()
+{
+	float x, y;
+
+	printf("请输入两个整数\n");
+	scanf("%f %f", &x, &y);
+	printf("%f\n",f_aver(x, y));
+}

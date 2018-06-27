@@ -1,0 +1,33 @@
+#include <stdio.h>//学生成绩a[人][课]，平均值，每门课的平均分等；
+
+void main()
+{
+	float a[3][3] = {{12,34,54},{546,65,45},{23,45,54}};
+	float aver = 0, sum = 0, b[3], summ = 0, d[3];
+	int i,j;
+
+	for(i = 0;i < 3;i++)//三个人循三次
+	{
+		for(j = 0;j < 3;j++)
+		{
+			sum = sum + a[i][j];
+		}
+		b[i] = sum / 3;
+	}
+	for(i = 0; i < 3; i++)
+		printf("%f ", b[i]);
+	printf("\n");
+
+	for(j = 0;j < 3;j++)//三门课循环三次
+	{
+		for(i = 0;i < 3;i++)//三个人循环三次
+		{
+			summ = summ + a[i][j];
+		}
+		d[j] = summ / 3;
+	}
+	for(j = 0; j < 3; j++)
+	printf("%f ", d[j]);
+}
+
+

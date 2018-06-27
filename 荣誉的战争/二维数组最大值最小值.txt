@@ -1,0 +1,42 @@
+#include <stdio.h>//二维数组中最大值和最小值
+
+void main()
+{
+	int a[3][4] = {{2, 2, 3, 466}, {55, 6, 7, 8}, {9, 1, 2, 3}};
+	int i, j, max, min;
+
+	for(i = 0; i < 3; i++)
+	{
+		for(j = 0; j < 4; j++)
+		{
+			printf("%2d ", a[i][j]);
+		}
+			printf("\n");
+	}
+	for(i = 0; i < 3; i++)
+	{
+		for(j = 0; j < 4; j++)
+		{
+			if(a[i][j] > a[i][j + 1])
+			{
+				max = a[i][j];
+				a[i][j + 1] = a[i][j];
+			}		
+		}
+	}
+	for(i = 0; i < 3; i++)
+	{
+		for(j = 0; j < 4; j++)
+		{
+			if(a[i][j] > a[i][j+1])
+			{
+				a[i][j] = a[i][j + 1];
+				min = a[i][j + 1];
+			}
+		}
+	}
+	printf("%d\n%d\n", max, min);
+}
+
+
+

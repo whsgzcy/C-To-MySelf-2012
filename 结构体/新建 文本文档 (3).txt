@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+struct student
+{
+	int num;
+	char name[20];
+	char sex;
+	int age;
+	float score;
+};
+ void print(struct student *pstu)
+{
+
+	  printf("学号:%d\t姓名:%s\t",pstu->num, pstu->name);
+		printf("性别:%c\t成绩:%.2f\n", pstu->sex, pstu->score);
+		
+}
+
+ void  main()
+{
+	struct student *pstu;
+	pstu = (struct student *)malloc(sizeof(struct student));
+	pstu->num  = 110;
+	strcpy(pstu->name,"y");
+	pstu->sex = 'm';
+	pstu->age = 20;
+	pstu->score = 90;
+	print(pstu);
+   free(pstu);
+	getch();
+ }
+
+	

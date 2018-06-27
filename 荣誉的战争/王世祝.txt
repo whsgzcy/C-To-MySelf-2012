@@ -1,0 +1,49 @@
+#include <stdio.h>
+void main()
+{
+	int a[11];
+	int i, j, t;
+	int n;  //这就是拿来输入一个数。把这个数插入到数列中。
+
+	for(i = 0; i < 10; i++)
+
+		scanf("%d", a + i);
+
+	for(i = 0; i < 10 ; i++)
+	{
+		for(j = i + 1; j < 10; j++)
+
+			if(* (a + i) > * (a + j))
+			{
+				t = * (a + i);
+				* (a + i) = * (a + j);
+				* (a + j) = t;
+			}
+			printf("%d\t", * (a + i));
+	}
+
+	printf("\n");
+
+	scanf("%d",&n);
+
+	for(i = 0; i < 10; i++)
+	
+		if(* (a + i) > n) break;
+
+			t = i;
+
+			for(j = 10, i = 9; j > t; j--)
+			{
+				* (a + j) = * (a + i);
+				i--;
+			}
+
+			* (a + t) = n;
+
+		for(i = 0; i < 11; i++)
+			
+			printf("%d\t", * (a + i));
+
+		printf("\n");
+
+}

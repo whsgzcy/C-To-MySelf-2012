@@ -1,0 +1,43 @@
+#include <stdio.h>
+
+void input(int a[10], int n)
+{
+	int i;
+	
+	for(i = 0;i < n; i++)
+		scanf("%d", &a[i]);
+}
+int maxa(int a[10], int n)
+{
+	int i;
+	int max;
+
+	for(i = 0;i < n; i++)
+		max = a[0];
+	for(i = 1;i < n; i++)
+		if(a[i] > max) 
+		max = a[i];
+		return max;
+}
+void print(int a[10], int n)
+{
+	int i;
+	for(i = 0;i < n; i++)
+		printf("%d ", a[i]);
+}
+
+void main()
+{
+	int b[10];
+	int max;
+
+	printf("请输入十个整数\n");
+	input(b, 10);
+	max = maxa(b, 10);
+	printf("\nArray max is  %d  \n", max);
+	printf("\n");
+	printf("\nThe array is:\n");
+	print(b, 10);
+}
+
+

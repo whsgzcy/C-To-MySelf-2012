@@ -1,0 +1,12 @@
+#include <stdio.h>
+
+void main()
+{
+	int n;
+	for(n = 100;n <= 200;n++)
+	{
+		if(n % 3 == 0)
+			continue;//此时的作用是结束此的循环，那将其屏蔽，得出的就是与结果相反的代码
+		printf("%d ", n);
+	}
+}

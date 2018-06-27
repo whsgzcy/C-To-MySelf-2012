@@ -1,0 +1,30 @@
+#include <stdio.h>//猜数字
+#include <stdlib.h>
+#include <time.h>
+
+void main()
+{
+	int i, magic, rand();
+
+	printf("请任意输入一个数\n");
+
+	scanf("%d", &i);
+	srand(time(NULL));
+
+	magic = rand() % 10 + 1;
+
+	while(i != magic)
+	{
+		if(i > magic)
+
+		printf("大 Game Over\n");
+
+	else if(i < magic)
+
+		printf("小 Game Over\n");
+
+			scanf("%d",&i);
+	}
+		printf("猜对了 You Win\n");
+
+}

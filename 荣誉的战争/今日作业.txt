@@ -1,0 +1,104 @@
+1.利用指代替下标进行数组编程:从健盘输入8个整数放入数组,然后将每个奇数加1,每个偶数减1,最后输出数组的所有元素.
+
+#include <stdio.h>
+
+void main()
+{
+	int a[8];
+	int i;
+
+	for(i = 0; i < 8; i ++)
+		
+		scanf("%d", a + i);
+
+	for(i = 0; i < 8; i ++)
+	{
+		if(* (a + i) % 2 != 0)
+
+			*(a + i) = * (a + i) + 1;
+
+		else
+
+			*(a + i) = * (a + i) - 1;
+
+		printf(" %d ", * (a + i));
+	}
+
+	printf("\n\n");
+}
+
+2.实现建立和输出顺序表在此基础上实现删除表中数据。（测试数据。1，4, 6，9，15，22） 删除第4号元素。 
+
+#include <stdio.h>
+#define maxsize 100
+
+typedef int DataType;
+
+typedef struct
+{
+	DataType data[maxsize];
+	int length;
+}sqlist;
+
+void createlist(sqlist * L)
+{
+	int i;
+
+	printf("请输入待建的表长：");
+
+	scanf("%d", & L ->length);
+
+	for(i = 0; i < L ->length; i ++)
+	{
+		scanf("%d", & L ->data[i]);
+	}
+
+	printf("\n表已经建立\n");
+}
+
+void print(sqlist L)
+{
+	int i;
+
+	printf("\n\n输出顺序表: ");
+
+	for(i = 0; i < L.length; i ++)
+
+		printf(" %d ", L.data[i]);
+
+	printf("\n\n请按人意见结束……\n");
+}
+
+sqlist del(sqlist L, int i)
+{
+	DataType x;
+
+	x = L.data[i - 1];
+
+	for(; i < L.length; i ++)
+
+		L.data[i - 1] = L.data[i];
+
+	L.length--;
+
+	printf("你要删除的数是 %d 已经删除了", x);
+
+	return L;
+}
+
+void main()
+{
+	int i;
+	sqlist L;
+
+	createlist(& L);
+
+	printf("请输入你需要删除的位置 i :");
+
+	scanf("%d", & i);
+
+	L = del(L, i);
+
+	print(L);
+}
+

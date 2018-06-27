@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int num_DJ(int *a, int *b, int i)
+{
+	*b = i%10;//取最小位数
+	while(i > 10)
+	{
+		i = i/10;
+	}
+	*a = i;//取最高位数
+}		
+
+void main()
+{
+	int p, high, low;
+
+	printf("请输入一个整数\n");
+	scanf("%d", &p);
+	num_DJ(&high, &low, p);//取地址
+	printf("最高位High=%d   最低位Low=%d\n", high, low);
+    getch();
+}

@@ -1,0 +1,211 @@
+
+1.在实现链表输入输出的基础上实现插入数据和删除数据。数据已给出输入（3,5,9,10,15,19）。插入数 11 。删除数 15 。请用链表实现。
+
+//1.在实现链表输入输出的基础上实现插入数据和删除数据。数据已给出输入
+//（3,5,9,10,15,19）。插入数 11 。删除数 15 。请用链表实现。
+
+#include <stdio.h>
+#include <malloc.h>
+
+struct stu
+{
+	int n;
+	struct stu *next;
+};
+
+int n;
+
+struct stu *create()
+{
+	struct stu *head;
+	struct stu *p1, *p2;
+
+	head = NULL;
+	n = 0;
+
+	p1 = p2 = (struct stu *) malloc (sizeof (struct stu));
+
+	scanf("%d", &p1 ->n);
+
+	while (p1 ->n != 0)
+	{
+		n = n + 1;
+
+		if(n == 1)
+
+			head = p1;
+		else
+
+			p2 ->next = p1;
+
+		p2 = p1;
+
+		p1 = (struct stu *) malloc (sizeof (struct stu));
+
+		scanf("%d", &p1 ->n);
+	}
+
+	p2 ->next = NULL;
+
+	return head;
+}
+
+void print(struct stu *head)
+{
+	struct stu * p;
+
+	p = head;
+
+	if(head != NULL)
+	{
+		while (p != NULL)
+		{
+			printf("%d\t", p ->n);
+			p = p ->next;
+		}
+	}
+}
+
+struct stu * insert(struct stu * head, struct stu * st)
+{
+	struct stu * p1, * p2;
+	struct stu * p;
+
+	p1 = head;
+	p = st;
+
+	if(head == NULL)
+	{
+		head = p;
+		p ->next = NULL;
+	}
+
+	else
+	{
+		while ((p ->n > p1 ->n) && p1 ->next != NULL)
+		{
+			p2 = p1;
+			p1 = p1 ->next;
+		}
+
+		if(p ->n <= p1 ->n)
+		{
+			if(head == p1)
+
+				head = p;
+			else 
+
+				p2 ->next = p;
+
+			p ->next = p1;
+		}
+		else
+		{
+			p1 ->next = p;
+			p ->next = NULL;
+		}
+	}
+
+	n = n + 1;
+
+	return head;
+}
+
+struct stu *del(struct stu *head, int n1)
+{
+	struct stu *p1, *p2;
+
+	if(head == NULL)
+
+		printf("NULL\n\n");
+
+	p1 = head;
+
+	while (n1 != p1 ->n && p1 ->next != NULL)
+	{
+		p2 = p1;
+		p1 = p1 ->next;
+	}
+
+	if(n1 == p1 ->n)
+	{
+		if(head == p1)
+
+			head = p1 ->next;
+
+		else 
+
+			p2 ->next = p1 ->next;
+
+		n = n - 1;
+	}
+
+	else 
+
+		printf("没有你要删除的数：\n");
+
+	return head;
+}
+
+void main()
+{
+	struct stu * head, * st;
+	int n;
+
+	head = create();
+
+	print(head);
+
+	printf("\n\n请输入你需要删除的数：\n");
+
+	scanf("%d", & n);
+
+	head = del(head, n);
+
+	print(head);
+
+	printf("\n\n请输入你需要插入的数：\n");
+
+	st = (struct stu *) malloc (sizeof(struct stu));
+
+	scanf("%d", & st ->n);
+
+	head = insert(head, st);
+
+	print(head);
+}
+
+
+
+
+
+2. 利用指向行的指针变量求5×3数组各行元素之和。
+
+#include <stdio.h>
+
+void main()
+{
+	int a[3][3], b[3] = {0};
+	int i, j;
+
+	for(i = 0; i < 3; i ++)
+		
+		for(j = 0; j < 3; j ++)
+
+			scanf("%d", (* (a + i) + j));
+
+	for(i = 0; i < 3; i ++)
+	{
+		for(j = 0; j < 3; j ++)
+		{
+			* (b + i) = * (* (a + i) + j) + * (b + i);
+		}
+	}
+
+	printf("每行的结果为：\n");
+
+	for(i = 0; i < 3; i ++)
+
+		printf("%d\n", * (b + i));
+
+}

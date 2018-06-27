@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+	char welcome[50] = "欢迎你回来";
+	char many[50] = "我亲爱的";
+	char sb[10];
+
+	printf("请输入你的姓名\n");
+	gets(sb);
+	
+	strcat(welcome, sb);/*函数值的交换函数stract*/
+	puts(welcome);
+	getch();
+}
+

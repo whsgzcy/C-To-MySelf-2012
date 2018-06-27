@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <string.h>
+
+void main()
+{
+	int *p, *tmp;
+	int i, _count;
+
+	printf("请输入班级人数\n");
+	scanf("%d", &_count);
+	p = malloc(_count * sizeof(int));
+	printf("请输入同学成绩\n");
+	tmp = p;
+	for(i = 0;i < _count; i++)
+	{
+		scanf("%d", tmp++);
+	}
+	tmp = p;
+	printf("同学们是成绩是\n");
+	for(i = 0;i < _count; i++)
+	{
+		printf(" %2d ", *tmp++);
+	}
+	free(p);
+	p = NULL;
+	tmp = NULL;
+        getch();
+}
+	
+	

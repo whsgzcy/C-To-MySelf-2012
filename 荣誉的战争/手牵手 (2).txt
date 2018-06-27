@@ -1,0 +1,82 @@
+#include <stdio.h>//队的实现
+#define maxsize 14
+
+/**************************************/
+typedef struct
+{
+	int data[maxsize];
+	int front;
+	int rear;
+}sqQueue;
+/**************************************/
+void initQueue(sqQueue *s)//队的初始化
+{
+	s -> front = 0;
+	s -> rear = 0;
+}
+/**************************************/
+/*int Queuelength(sqQueue *s)//队的长度
+{
+	return (s -> rear - s -> front + maxsize) % maxsize;
+}*/
+/**************************************/
+int EnQueue(sqQueue *s, int x)//入队
+{
+	if((s -> rear + 1) % maxsize == s -> front)
+	{
+		printf("队满");
+	}
+	s -> data[s -> rear] =  x;
+	s -> rear = (s -> rear + 1) % maxsize;
+	return 0;
+}
+/**************************************/
+int PopQueue(sqQueue *s)
+{
+	int x;
+
+	if(s -> rear == s -> front)
+	{
+		printf("队空");
+	}
+	x = s -> data[s -> front];
+	s -> front = (s -> front + 1) % maxsize;
+	return x;
+}
+/**************************************/
+void main()
+{
+
+	int i = 0, j, n, m = 0;
+	int a[13] = {1};
+	sqQueue s;
+	initQueue(&s);
+
+	for(i = 1; i < 9; i++)//进队
+	{
+		EnQueue(&s, i);
+	}
+
+	for(j = 1; j < 100; j++)
+	{
+		if(j % 3 != 0)
+		{
+			n = PopQueue(&s);
+			EnQueue(&s, n);
+		}
+		else
+		{
+			n = PopQueue(&s);
+			a[m] = n;
+			m++;
+		}
+			if(a[7] != 0)
+			
+				break;
+	}
+	for(m = 0; m < 8; m++)
+		printf("%d ", a[m]);
+	getch();
+}
+
+

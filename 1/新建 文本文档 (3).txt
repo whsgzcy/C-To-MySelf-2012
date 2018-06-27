@@ -1,0 +1,26 @@
+1 #include <stdio.h>
+
+void main()
+{
+	char a[13];
+
+	gets(a);
+	puts(a);
+}
+
+
+2#include <stdio.h>
+#include <string.h>
+
+void main()
+{
+	char a[5], b[5];
+	char c;
+	printf("输入第一个字符串:\n");
+	gets(a);
+	printf("输入第二个字符串:\n");
+	gets(b);
+	strcat(a, " " );
+	strcat(a, b);
+    puts(a);
+}

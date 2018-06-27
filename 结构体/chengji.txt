@@ -1,0 +1,44 @@
+#include <stdio.h>
+struct student
+{
+	int num;
+	char name[20];
+	char sex;
+	int age;
+	float score;
+}
+
+
+ main()
+{
+       struct student stu[10];
+	   int i = 0,count = 0;
+	    float sum = 0,aver;
+	  
+		for(i=0;i<10;i++)
+		{	
+			stu[i].num = 100  + i;
+			stu[i].sex = 'g';
+			stu[i].age = 20;
+	        printf("请输入第%d个学生的姓名:\n");
+	        scanf("%s", stu[i].name);
+         	printf("请输入第%d个学生的分数:\n");
+        	scanf("%f",&stu[i].score);
+        	
+		}
+		for(i=0;i<10;i++)
+		{
+			sum = sum + stu[i].score;
+			if(stu[i].score < 60)
+			{
+				count = count + 1;
+			}
+		}
+				aver = sum /10.0;
+	     printf("总分:%f\n", sum);
+	     printf("平均分:%f\n", aver);
+		 printf("不及格:%d\n", count);
+		 
+       getch();
+	   
+}

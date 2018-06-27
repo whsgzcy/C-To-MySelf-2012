@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+void main()
+{
+	FILE *fp_file = NULL;
+	char file_name[255] = {0};
+	printf("请输入要打开的文件名");
+	gets(file_name);
+	fp_file = fopen(file_name,"r");
+	if(NULL==fp_file)
+	{
+		printf("打开失败，检查文件是否存在\n");
+	}
+	else
+	{
+		printf("打开文件成功\n");
+		fclose(fp_file);
+	}
+	getchar();
+}

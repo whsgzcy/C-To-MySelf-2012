@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+void inv(int x[], int n)
+{
+	int temp, i, j,m = (n - 1) / 2;//次时的i，j是位置变量,temp只是用来交换变量位置的量
+
+	for(i = 0;i <= m;i++)
+	{
+		j = n - 1 - i;
+		temp = x[i];
+		x[i] = x[j];
+		x[j] = temp;
+	}
+	return;//打断这段循环，规范，如不打断若子函数中出现错误，则在主函数中会继续运行；
+}
+void main()
+{
+	void inv(int x[], int n);//函数的申明
+		
+	int i, a[10] = {1, 2, 3};
+
+	for(i = 0;i < 10;i++)//举例，若n=10，则中间的数用代码表示则是int[（n-1）/2],int [n - int[((n-1)/2)-1],表示的是4,5
+		printf("%d \n", a[i]);
+	inv(a, 10);//此时的a是数组名，即首地址，即指针变量
+		for(i = 0;i < 10;i++)
+		printf("%d ", a[i]);
+}
+

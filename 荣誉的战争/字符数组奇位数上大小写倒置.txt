@@ -1,0 +1,29 @@
+#include <stdio.h>//指针奇数上的字母大小写倒置
+#include <string.h>
+
+void main()
+{
+	char str[] = "DA JIA HAO wo jiao zhou jie lun";
+	int l, i;
+
+	l =  strlen(str);
+
+	for(i=0;i<=l;i++)
+	{
+			if(i%2 == 1)
+			{
+				if(str[i]>='A'&&str[i]<='Z')
+				{
+					printf("%c",str[i]+32);
+				}
+				else
+				{
+					printf("%c",str[i]);
+				}
+			}
+			else
+			{
+				printf("%c",str[i]);
+			}
+	}
+}

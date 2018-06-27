@@ -1,0 +1,64 @@
+软件1222班编程练习
+编程范围：指针                                                     
+
+1,编写一个程序，输入星期，输出该星期的英文名. 
+
+#include <stdio.h>
+void main()
+{
+	int i;
+    char * name[] = { "星期一","星期二","星期三","星期四","星期五","星期六","星期天"};
+
+	printf("请输入数字 1 ~ 7，对应输出星期名。\n" );
+
+	scanf("%d", & i);
+
+	while(i < 1)
+	{
+		printf("你输入有误，请重新输入\n");
+
+		scanf("%d", & i);
+	}
+
+	printf("Day NO : %2d --> %s\n", i, * (name + (i - 1));
+
+
+
+}
+2,输入一段字符串，判断是否回文.（回文：aba, aabbaa，1221等）
+
+
+#include <stdio.h>
+#include <string.h>
+
+void main()
+{
+   char str[30];
+   int i = 0, j;
+   printf("请输入一行字符串：\n");
+   
+   gets(str);
+
+   j = strlen(str) - 1;
+
+   while (* (str + i) == ' ')  i ++;
+   while (* (str + j) == ' ')  j --;
+
+   for(; i <= j; i ++, j --)
+   {
+	   if(* (str + i) != * (str + j))
+
+		   break;
+   }
+   if(i >= j)
+
+	   printf("yes");
+
+   else 
+	   printf("no");
+
+
+
+}
+
+

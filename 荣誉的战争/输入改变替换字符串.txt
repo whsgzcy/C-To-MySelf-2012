@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <string.h>
+
+void main()
+{
+	char s[50], s1[50], s2[50];
+	int i, j, l, l1, m = 0;
+	
+	printf("首先:\n");
+	gets(s);
+	printf("然后:\n");
+	gets(s1);
+
+	l = strlen(s);
+	l1 = strlen(s1);
+
+	printf("最后:\n");
+	gets(s2);
+
+	for(i = 0; i < l; i++)
+	{
+		for(j = 0; j < l1; j++)
+		{
+			if(s[i] == s1[j])
+			{
+				s[i] = s2[j];
+			}
+		}
+		printf("%c", s[i]);
+	}
+}
+
+

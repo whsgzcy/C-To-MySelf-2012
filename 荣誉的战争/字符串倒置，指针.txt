@@ -1,0 +1,13 @@
+#include <stdio.h>//×Ö·û´®µ¹ÖÃ
+#include <string.h>
+
+void main()
+{
+	char *c, str[] = "I love China !";
+	int l,i;
+
+	l = strlen(str);
+
+	for(c = str + l; l > 0; l--,c--)
+		printf("%c" , *c);
+}

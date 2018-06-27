@@ -1,0 +1,168 @@
+1,求一个3*3矩阵对角线之和
+#include <stdio.h>//3*3矩阵对角线之和
+
+void main()
+{
+	int a[3][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+	int i, j, sum1 = 0, sum2 = 0;
+
+	for(i = 0;i < 3;i++)
+	{
+		sum1 = sum1 + a[i][i];//根据矩阵的特点
+	for(j = 0;j < 3;j++)
+		if(i + j == 2)//根据矩阵的特点
+			sum2 = sum2 + a[i][j];
+	}
+	printf("%d %d\n", sum1, sum2);
+}
+
+
+
+2,用冒泡法对十个整数进行排序
+#include <stdio.h>//用冒泡法(将相邻两个数比较，将小的调在前头)排序
+
+void main()
+{
+	int a[10];
+	int i, j, t;
+
+	printf("请输入十个整数\n");
+	for(i = 0;i < 10;i++)
+		scanf("%d", &a[i]);//此时要加取地址符号&
+	for(i = 0;i < 9;i++)//进行9趟比较
+		for(j = 0;j < 9 - i;j++)//每趟要进行9-i次比较
+			if(a[j] > a[j + 1])
+			{
+				t = a[j];
+				a[j] = a[j + 1];
+				a[j + 1] = t;
+			}
+			for(i = 0;i < 10;i++)
+				printf("%d ", a[i]);
+			getch();
+}
+
+
+
+3,输入一段字符，计算字符的长度，指针
+#include <stdio.h>//指针，输入一段字符计算字符个数
+
+void main()
+{
+	char * c, st[50];
+	int i = 0;
+
+	gets(st);
+	c = st;
+	for(i = 0;c[i] != '\0';i++);//编程要规范，这里的封号可以换为{}
+		printf("%d", i);
+}
+
+#include <stdio.h>
+
+void main()
+{
+	char * c, b[100];
+	int i = 0;
+
+	gets(b);
+	for(c = b; * c != '\0'; c++)//将数组的首地址赋给指针c，然后c每向后移一位
+	{
+	i++;
+	}
+	printf("%d", i);
+}
+
+#include <stdio.h>//将空格滤去
+
+void main()
+{
+	char * c, b[100];
+	int i = 0;
+
+	gets(b);
+	for(c = b; * c != '\0'; c++)//将数组的首地址赋给指针c，然后c每向后移一位
+	{
+		if(* c != ' ')
+			i++;
+	}
+	printf("%d\n", i);
+}
+
+4,指针将一个字符串打印出来
+#include <stdio.h>
+
+/*void main()
+{
+	char a[] = "I am a boy", b[20];
+	int i;
+
+	for(i = 0;* (a + i) != '\0';i++)//a[i]
+	
+		* (b + i) = * (a + i);//a[i]一个字符一个字符的赋给b[i]
+	* (b + i) = '\0';//将'\0'赋值给上述的循环，循环停止
+	
+	printf("%s\n", a);
+	for(i = 0;b[i] != '\0';i++)
+		printf("%c", b[i]);
+	printf("\t");
+}*/
+void main()
+{
+	char a[] = "I am a boy", b[20], * p1, * p2;
+	int i;
+
+	for(p1 = a, p2 = b; * p1 != '\0'; p1++, p2++) //此时的循环及表达的意义
+	{
+		* p2 = * p1;//将整个字符串赋给p2
+	}
+		
+	    * p2 = '\0';//在字符串后面加个'\0'
+		printf("%s\n", a);
+
+	for(i = 0;b[i] != '\0';i++)
+		printf("%c", b[i]);
+	printf("\t");                
+}
+	
+5,指针法，输出排列十个数
+#include <stdio.h>//指针，输入十个整数，从小到大排序（指针冒泡法）
+
+void main()
+{
+	int a[10];
+	int *p1, *p2, t;
+
+	printf("请输入三个整数:\n");
+	for (t = 0; t < 10; t++)
+	{
+		scanf("%d", &a[t]);//输入数据
+	}
+
+	
+	for (p2 = &a[9]; p2 > a[0]; p2--)//10个数要进行9趟比较
+	{
+		for (p1 = &a[0]; p1 < p2; p1++)//一次比较，大者沉底，要进行9-i次
+		{
+			if (* p1 > * (p1+1))//进行交换
+			{
+				t = *p1;
+				*p1 = *(p1+1);
+				*(p1+1) = t;
+			}
+		}
+	}
+
+	for(p1 = &a[0]; p1 <= &a[9]; p1++)
+	{
+		printf("%d ", *p1);
+	}
+
+}
+
+	
+
+
+
+
+

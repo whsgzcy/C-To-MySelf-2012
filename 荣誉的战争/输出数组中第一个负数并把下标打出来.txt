@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+void main()
+{
+	int a[3][4] = {1, 2, 3, 4, 5, -6, 7, 8, 9, 10, 11, 12}, k, i, j, m;
+	for(i = 0;i < 3; i++)
+	{
+		for(j = 0; j < 4; j++)
+			printf("%5d", a[i][j]);
+		printf("\n");
+	}
+		for(i = 0;i < 3; i++)
+		{
+			for(j = 0; j < 4; j++)
+			if(a[i][j] < 0)
+			{
+				k = a[i][j];
+				printf("\n第一个出现的数是负数是%d\n下标是[%d][%d]", k, i + 1, j + 1);
+			}
+		}
+}
+

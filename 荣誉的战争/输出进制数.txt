@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+void main()
+{
+    int a, b;
+	printf("请输入一个数\n");
+    scanf("%d",&a);
+	printf("八进制输出1\n");
+	printf("十六进制输出2\n");
+	scanf("%d",&b);
+	if(b == 1)
+		printf("%x",a);
+	else
+        printf("%o",a);
+	
+}
+
+
+	
+

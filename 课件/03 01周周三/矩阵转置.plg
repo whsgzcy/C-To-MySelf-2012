@@ -1,0 +1,35 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: 矩阵转置 - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSPC3D8.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/矩阵转置.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Users\Administrator\Desktop\实训\课件\03 01周周三\矩阵转置.c"
+]
+Creating command line "cl.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSPC3D8.tmp" 
+<h3>Output Window</h3>
+Compiling...
+矩阵转置.c
+c:\users\administrator\desktop\实训\课件\03 01周周三\矩阵转置.c(6) : error C2018: unknown character '0xa1'
+c:\users\administrator\desktop\实训\课件\03 01周周三\矩阵转置.c(6) : error C2018: unknown character '0xb0'
+c:\users\administrator\desktop\实训\课件\03 01周周三\矩阵转置.c(6) : error C2143: syntax error : missing ')' before '%'
+c:\users\administrator\desktop\实训\课件\03 01周周三\矩阵转置.c(6) : error C2198: 'printf' : too few actual parameters
+c:\users\administrator\desktop\实训\课件\03 01周周三\矩阵转置.c(6) : error C2065: 'd' : undeclared identifier
+c:\users\administrator\desktop\实训\课件\03 01周周三\矩阵转置.c(6) : error C2018: unknown character '0xa1'
+c:\users\administrator\desktop\实训\课件\03 01周周三\矩阵转置.c(6) : error C2018: unknown character '0xb1'
+c:\users\administrator\desktop\实训\课件\03 01周周三\矩阵转置.c(6) : error C2059: syntax error : ','
+c:\users\administrator\desktop\实训\课件\03 01周周三\矩阵转置.c(6) : error C2059: syntax error : ')'
+执行 cl.exe 时出错.
+
+
+
+<h3>Results</h3>
+矩阵转置.obj - 1 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

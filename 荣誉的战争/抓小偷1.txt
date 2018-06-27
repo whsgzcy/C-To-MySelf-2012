@@ -1,0 +1,34 @@
+#include <stdio.h>
+
+void main()
+{
+	int a[4];
+	int i, j;
+	for(i = 0;i < 4;i++)
+	{
+		for(j = 0;j < 4;j++)
+		{
+			a[i] = 1;
+			a[j] = 0;
+		}
+		if(a[1] + a[3] == 1&&a[1] + a[2] == 1&&a[0] + a[1] ==1)
+		{
+		if(a[0] == 1)
+		{
+				printf("甲是小偷\n")；
+		}
+		if(a[1] == 1)
+		{
+				printf("乙是小偷\n")；
+		}
+		if(a[2] == 1)
+		{
+				printf("丙是小偷\n")；
+		}
+        if(a[3] == 1)
+			{
+				printf("丁是小偷\n")；
+			}
+	}
+}
+

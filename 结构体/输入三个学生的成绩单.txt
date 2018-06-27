@@ -1,0 +1,44 @@
+#include <stdio.h>
+struct student
+{
+	int num;
+	char name[20];
+	char sex;
+	int age;
+	float score;
+}
+
+
+ main()
+{
+	 int i,j;
+       struct student stu[3];
+	  
+	   stu[0].num=101;
+	   stu[1].num=102;
+	   stu[2].num=103;
+	   
+	   stu[0].age=18;
+	   stu[1].age=20;
+	   stu[2].age=19;
+
+		for(i=0;i<3;i++)
+		{		
+	        printf("请输入第%d个学生的姓名:\n",i+1);
+	        scanf("%s", &stu[i].name);
+	        getchar();
+	        printf("请输入第%d个学生的性别:\n",i+1);
+	        scanf("%c",&stu[i].sex);
+	        getchar();
+         	printf("请输入第%d个学生的分数:\n",i+1);
+        	scanf("%f",&stu[i].score);
+        	getchar();
+		}
+		for(j=0;j<3;j++)
+		{
+	printf("学号：%d\n姓名：%s\n", stu[j].num, stu[j].name);
+	printf("性别：%c\n年龄：%d\n分数：%.2f\n", stu[j].sex, stu[j].age, stu[j].score);
+		}
+	
+	getch();
+}

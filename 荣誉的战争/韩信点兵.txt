@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+void main()
+{
+	int i;
+
+	for(i = 0;;i++)
+	{
+		if(i % 5 == 1)
+		{
+			if(i % 6 == 5)
+			{
+				if(i % 7 == 4)
+				{
+					if(i % 11 == 10)
+					{
+						printf("%d\n", i);
+						break;
+					}
+				}
+			}
+		}
+	}
+}

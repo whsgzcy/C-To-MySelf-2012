@@ -1,0 +1,228 @@
+#include <stdio.h>
+#include <malloc.h>
+#include <stdlib.h>
+
+#define STACK_INT_SIZE 100  //存储空间初始分配量
+#define STACKINCREMENT 10 //存储空间分配增量
+#define OK       1
+#define ERROR    0
+#define TRUE     1
+#define FALSE    0
+#define OVERFLOW -2
+
+typedef char TElemType;
+typedef int Status;
+typedef char SElemType;
+
+//二叉树的二叉链表存储表示
+typedef struct BiTNode
+{
+    TElemType data;
+    BiTNode *lchild, *rchild;  //左右孩子指针
+} BiTNode, *BiTree;
+
+
+typedef struct
+{
+    BiTree *base;
+    BiTree *top;
+    int stacksize;  //当前已分配的存储空间
+} SqStack;
+
+Status InitStack(SqStack &S)
+{
+    S.base = (BiTree *) malloc(sizeof(BiTree));
+    if(!S.base) exit(OVERFLOW);
+    S.top = S.base;
+    S.stacksize = STACK_INT_SIZE;
+    return OK;
+}
+
+Status GetTop(SqStack &S, BiTree &e)
+{
+    //若栈不空，则用e返回S的栈顶元素
+    if(S.top == S.base) return ERROR;
+    e = *(S.top-1);
+    return OK;
+}
+
+Status Push(SqStack &S, BiTree e)
+{
+    //插入元素e为栈顶元素
+    if(S.top - S.base >= S.stacksize)    //若栈满，则追加存储空间
+    {
+        S.base = (BiTree *) realloc(S.base, (S.stacksize + STACKINCREMENT)*sizeof(BiTree));
+        if(!S.base) return ERROR;
+        S.top = S.base + S.stacksize;
+        S.stacksize += STACKINCREMENT;
+    }
+    *S.top = e;
+    S.top++;
+    return OK;
+}
+
+Status Pop(SqStack &S,BiTree &e)
+{
+    //删除S的栈顶元素，并用e返回
+    if(S.base == S.top) return ERROR;
+    S.top--;
+    e = *S.top;
+    return OK;
+}
+
+Status StackEmpty(SqStack S)
+{
+    // 若栈S为空栈，则返回TRUE，否则返回FALSE
+    if(S.top == S.base) return TRUE;
+    else return FALSE;
+}
+
+Status CreateBiTree(BiTree &T)
+{
+    //按先序次序输入二叉树中结点的值
+    //构造二叉链表表示的二叉树T
+    char ch;
+    scanf("%c",&ch);
+    if(ch == '0') T = NULL;
+    else
+    {
+        if(!(T = (BiTNode *) malloc(sizeof(BiTNode)))) exit(OVERFLOW);
+        T->data = ch;  //生成根结点
+        CreateBiTree(T->lchild);  //构造左子树
+        CreateBiTree(T->rchild);  //构造右子树
+    }
+    return OK;
+} //CreateBiTree
+
+
+Status InOrderTraverse(BiTree T)
+{
+    //中序遍历二叉树T的非递归算法，对每个数据元素调用函数Visit
+    SqStack S;
+    InitStack(S);
+    BiTree p;
+    p = T;
+    while(p || !StackEmpty(S))
+    {
+        if(p)
+        {
+            Push(S,p);
+            p = p->lchild;  //根指针进栈，遍历左子树
+        }
+        else   //根指针退栈，访问根结点，遍历右子树
+        {
+            Pop(S,p);
+            printf("%c",p->data);
+            p = p->rchild;
+        }
+    }//while
+    return OK;
+} //InOrderTraverse
+
+void main()
+{
+    printf("请输入先序建立二叉树所需要的数据(例如ABD0000)：");
+    BiTree t;
+    CreateBiTree(t);
+    printf("中序输出为：");
+    InOrderTraverse(t);
+    printf("\n");
+}
+
+
+下面这个是用c写的。上面的是用c ++ 写的。
+
+
+
+#include "stdio.h"
+#include "stdlib.h"
+#include "string.h"
+#define null 0
+
+struct node 
+{
+ char data;
+ struct node *lchild;
+ struct node *rchild;
+};
+
+//先序，中序 建树
+struct node *create(char *pre,char *ord,int n)
+{
+ struct node * head;
+ int ordsit;
+
+ head=null;
+ if(n<=0)
+ {
+  return null;
+ }
+ else 
+ {
+  head=(struct node *)malloc(sizeof(struct node));
+  head->data=*pre;
+  head->lchild=head->rchild=null;
+  ordsit=0;
+  while(ord[ordsit]!=*pre)
+  {
+   ordsit++;
+  }
+  head->lchild=create(pre+1,ord,ordsit);
+  head->rchild=create (pre+ordsit+1,ord+ordsit+1,n-ordsit-1);
+  return head;
+ }
+}
+
+//中序递归遍历
+void inorder(struct node *head)
+{
+ if(!head)
+  return;
+ else
+ {
+  inorder(head->lchild );
+  printf("%c",head->data );
+  inorder(head->rchild );
+ }
+}
+
+//中序非递归遍历
+
+void inorder1(struct node *head)
+{
+ struct node *p;
+ struct node *stack[20];
+ int top=0;
+ 
+ p=head;
+ while(p||top!=0)
+ {
+  while (p)
+  {
+   stack[top++]=p;
+   p=p->lchild ;
+  }
+  p=stack[--top];
+  printf("%c ",p->data );
+  p=p->rchild ;
+ }
+}
+
+//主函数
+int main()
+{
+ struct node * head;
+ char pre[30],ord[30];
+ int n;
+
+ gets(pre);
+ gets(ord);
+    n=strlen(pre);
+ head=create(pre,ord,n);
+ inorder(head);
+ printf("\n");
+ inorder1(head);
+ printf("\n");
+}
+
+

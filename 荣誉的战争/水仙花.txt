@@ -1,0 +1,16 @@
+#include <stdio.h>//水仙花
+
+void main()
+{
+	int w, g , s, b;
+
+	for(w = 100;w <= 999;w++)
+    {
+ 	 g = w % 10;//取个
+     s = w / 10 % 10;//十
+     b = w / 100;//百
+     if(w == g * g * g + s * s * s + b * b * b) 
+	 printf("%d ", w);
+    }
+}
+	

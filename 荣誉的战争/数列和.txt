@@ -1,0 +1,22 @@
+#include <stdio.h>//数列求和1+2+3……
+
+int fun(int n)
+{
+	int y;
+
+	if(n == 0)
+		return y = 0;
+	else
+		return y = fun(n - 1) + n;
+}
+void main()
+{
+	int n;
+
+	printf("请输入项数n:");
+	scanf("%d", &n);
+
+	printf("%d\n", fun(n));
+}
+
+	

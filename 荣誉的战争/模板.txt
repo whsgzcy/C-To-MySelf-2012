@@ -1,0 +1,104 @@
+#include<stdlib.h>
+#include<stdio.h>
+
+struct node
+{  
+	int data;
+   struct node *next;
+};
+struct node *Creatlist(struct node *h, int n)
+{   
+	struct node *p, *q;
+    int i;
+
+	h = (struct node*)malloc(sizeof(struct node));
+    h -> next = NULL;
+	q = h;
+
+	for(i = n; i > 0; i--)
+	{
+      p = (struct node*)malloc(sizeof(struct node));
+
+	  scanf("%d", &p -> data);
+
+	  p -> next = q -> next;
+	  q -> next = p;
+	  q = p;
+	}
+    q -> next = h-> next;
+	free(h);
+	return q -> next;
+}//建立
+
+
+void Printlist(struct node *h)
+{
+	struct node *p;
+	p = h;
+
+	while(p -> next != h)
+	{  
+		printf("%d ",p -> data);
+	          p = p -> next;
+		}
+
+	printf("%d ",p -> data);
+     printf("\n");
+}//输出
+ 
+
+void YueSeFuHuan(struct node *h, int i, int n)
+{  struct node *p,*q;
+   int j, m, e;
+   p = h;
+
+   for(j = 1; j < i; j++)
+   {
+	   p = p -> next;
+   }
+
+   while(p -> next != p)
+   {
+	for(m = 1; m < n - 1; m++)
+   {
+	   p = p -> next;
+   }
+
+   q = p -> next;
+   p -> next = q -> next;
+   e = q -> data;
+
+   free(q);
+   printf("%d ", e);
+   p = p -> next;
+
+	}
+   e = p -> data;
+   free(p);
+   printf("%d\n", e);
+}
+//约瑟夫环
+
+void main()
+{  
+	struct node *L;
+    int n, i, j;
+
+   printf("输入人数\n");
+   scanf("%d", &n);
+
+   printf("输入每个人的编号\n");
+   L = Creatlist(L, n);
+
+   printf("建立的循环链表:\n");
+   Printlist(L);
+
+   printf("输入开始数数的人的位置:\n");
+   scanf("%d", &i);
+
+   printf("输入数到几的人出桌:\n");
+   scanf("%d", &j);
+
+   printf("出桌顺序:\n");
+   YueSeFuHuan(L, i, j);
+}

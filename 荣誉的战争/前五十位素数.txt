@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+void main()
+{
+	int i = 1, j = 2, n = 0;
+
+	while(n < 50)
+	{
+		i++;
+		while(i > j)
+		{
+			if(i % j == 0)
+				break;
+			else
+				j++;
+		}
+			if(j == i)
+			{
+				printf("%.2d ", i);
+				n++;
+			}
+				j = 2;
+	}
+	printf("\n");
+}

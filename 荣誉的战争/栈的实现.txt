@@ -1,0 +1,68 @@
+#include <stdio.h>
+#define maxsize 100
+
+typedef struct
+{
+	int data[maxsize];
+	int top;
+}sqstack;
+
+int initstack(sqstack *s)//Õ»µÄ³õÊ¼»¯
+{
+	return s -> top = -1;
+}
+
+int full(sqstack *s)//Õ»Âú
+{
+	return s -> top == maxsize - 1;
+}
+
+int empty(sqstack *s)
+{
+	return s -> top == -1;
+}
+
+void push(sqstack *s, int x)
+{
+	if(full(s))
+	{
+		printf("Õ»Âú");
+	}
+	else
+		s -> data[++s -> top] = x;
+}
+
+int pop(sqstack *s)
+{
+	if(empty(s))
+	{
+		printf("Õ»¿Õ");
+	}
+	return s -> data[s -> top--];
+}
+
+void main()
+{
+	int n, i;
+	sqstack s;
+	initstack(&s);
+
+	scanf("%d", &n);
+
+	while(n != 0)
+	{
+		push(&s, n % 2);
+		n = n / 2;
+	}
+
+	while(!empty(&s))
+	{
+		i = pop(&s);
+		printf("%d", i);
+	}
+
+	printf("\n");
+}
+
+
+C:\\Progra~1\\Tencent\\QQ\\QQProtect\\Bin\\QQProtect.exe

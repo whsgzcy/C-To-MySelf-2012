@@ -1,0 +1,30 @@
+#include <stdio.h>//判断回文
+#include <string.h>
+
+void main()
+{
+	char str[100];
+	int i, j, l;
+
+	gets(str);
+	l = strlen(str);
+
+	for(i = 0, l = l - 1; i <= l; i++, l--)
+	{
+		if(str[i] == str[l])
+		{
+			if(i == l || i < l)
+			{
+			printf("是回文");
+			break;
+			}
+		}
+		else
+		{
+			printf("不是回文");
+			break;
+		}
+	}
+}
+	
+

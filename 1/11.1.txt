@@ -1,0 +1,45 @@
+在C磁盘中创建文本文档，从中输入字符以回车键结束。
+#include "stdio.h"
+void main()
+{
+   FILE *fp;
+   char  ch;  
+   if((fp=fopen("c:\\test.txt","w"))==NULL)
+     {
+        printf("Cannot open  this file.\n");  
+        exit(0);
+     }
+   printf("\nPlease input a string.以回车键结束.\n");
+   while((ch=getchar())!='\n')  fputc(ch,fp);
+   fclose(fp);
+}
+2.读写文件
+#include <stdio.h>
+
+
+void main()
+{
+	FILE * fp_file = NULL;
+
+	char file_name[255] = {0};
+
+	int str[50];
+	int m;
+	printf("请输入要打开的文件名\n");
+	gets(file_name);
+
+	fp_file = fopen(file_name,"r");
+	if(NULL == fp_file)
+	{
+		printf("打开失败，检查文件是否存在\n");
+	}
+	else
+	{
+		printf("文件打开成功\n");
+		fscanf(fp_file,"%s%d",&str,&m);
+			printf("%s%d\n",str,m);
+		printf("文件读取完整\n");
+		fclose(fp_file);
+	}
+	getchar();
+}

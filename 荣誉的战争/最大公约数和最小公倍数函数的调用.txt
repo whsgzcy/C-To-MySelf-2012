@@ -1,0 +1,45 @@
+#include <stdio.h>/*如果主函数在子函数的前面可以在此一二行增加*/
+/*int max_whsgzcy1(int, int)*/
+/*int min_whsgzcy2(int, int)*/
+/*说明*/
+
+int max_whsgzcy1(int num1, int num2)
+{
+	int i;
+	int res;
+
+	for(i = 1;i <= num1;i++)
+	{
+		if(num1%i == 0 && num2%i == 0)
+		{
+			res = i;
+		}
+	}
+	return res;
+}
+int min_whsgzcy2(int num1, int num2)
+{
+	int i;
+	int res = num1 * num2;
+
+	for(i = num1 * num2;i >= num1;i--)
+	{
+		if(i % num1 == 0 && i % num2 == 0)
+		{
+			res = i;
+		}
+	}
+	return res;
+}
+void main()
+{
+	int x, y;
+	
+	printf("输入两个整数\n");
+	scanf("%d %d", &x, &y);
+	printf("%d 和 %d 最大公约数是 %d\n", x, y, max_whsgzcy1(x, y));
+	printf("%d 和 %d 最小公倍数是 %d\n", x, y, min_whsgzcy2(x, y));
+}
+
+
+	

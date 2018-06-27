@@ -1,0 +1,50 @@
+#include<stdio.h>
+void main()
+{
+	float x;
+	printf("ÇëÊäÈë·ÖÊý£º");
+	scanf("%f", &x);
+	if(x >= 90)
+		printf("A\n");
+	if(x < 90 && x >= 80)
+		printf("B\n");
+	if(x < 80 && x >= 70)
+		printf("C\n");
+	if(x < 70 && x > 60)
+		printf("D\n");
+	if(x < 60)
+		printf("E\n");
+}
+
+
+#include <stdio.h>
+
+void main()
+{
+	int w, g , s, b;
+
+	for(w = 100;w <= 999;w++)
+    {
+ 	 g = w % 10;
+     s = w / 10 % 10;
+     b = w / 100;
+     if(w == g * g * g + s * s * s + b * b * b) 
+	 printf("% 4d", w);
+    }
+}
+
+
+#include <stdio.h>
+
+void main()
+{
+	int i,j;
+	for(i = 2;i <= 100;i++)
+	{
+		for(j = 2;j < i;j++)
+		if(i % j == 0) 
+		break;
+		if(j == i)
+		printf("%3d",i);
+	}
+}

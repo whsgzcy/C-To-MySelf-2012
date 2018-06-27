@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+void main()
+{
+	int s;
+	int i, j;
+
+	for(i = 0; i <= 4; i++)
+	{
+		for(j = 0; j <= 3; j++)
+		{
+			s = 3 * i + 5 * j;
+			if(s != 0)
+			{
+			printf("%d ", s);
+			}
+			s = 0;
+		}
+	}
+}

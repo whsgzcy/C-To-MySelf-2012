@@ -1,0 +1,21 @@
+#include <stdio.h>
+int mun_swap(int , int );
+
+void main()
+{
+	int x, y;
+
+	printf("请输入两个数\n");
+	scanf("%d %d", &x, &y);
+	mun_swap(&x, &y);//取地址
+	printf("%d %d",x, y);
+	getch();
+}
+
+int mun_swap(int *a, int *b)//此指针给的是地址
+{
+	int i;
+	i = *a;
+	*a = *b;
+	*b = i;
+}

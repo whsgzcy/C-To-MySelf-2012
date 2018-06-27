@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include <string.h>
+
+void main()
+{
+	char ch1[20];
+	char ch2[20];
+
+	printf("请输入第一个字符串\n");
+	gets(ch1);
+	printf("请输入第二个字符串\n");
+	gets(ch2);
+	strcat(ch1, " ");/*把空格加到ch1中*/
+	strcat(ch1, ch2);
+	puts(ch1);
+}

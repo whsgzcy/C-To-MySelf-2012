@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <string.h>
+
+void main()
+{
+	char s1[50], s2[50];
+	int i;
+
+    printf("请输入s2:");
+	gets(s2);
+    
+	for(i = 0;i <= strlen(s2) ; i++)//此时‘<=’不能写成‘<’,‘\0’也算个字符
+	{
+		s1[i] = s2[i];
+	}
+	printf("输出字符串s1:");
+	puts(s1);
+}
+

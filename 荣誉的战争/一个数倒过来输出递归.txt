@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+int num_int(int a)
+{
+	if(a > 0)
+	{
+		printf("%d", a%10);
+		num_int(a/10);//递归
+	}
+	return num_int(a);
+}
+void main()
+{
+	int n;
+	
+	printf("请输入一段数字\n");
+	scanf("%d",&n);
+	while(n < 0)
+	{
+	if(n < 0)
+	printf("输入错误请重新输入\n");
+	
+	scanf("%d", &n);
+	}
+
+	printf("%d", num_int(n));
+	
+}
+
+

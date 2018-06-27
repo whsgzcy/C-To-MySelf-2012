@@ -1,0 +1,34 @@
+#include <stdio.h>
+
+float pi = 3.14;
+float f1(float r)
+{
+	float c;
+	c = 2 * pi * r;
+	return c;
+}
+float f2(float r)
+{
+	float s;
+	s = 4 * pi * r * r;
+	return s;
+}
+float f3(float r)
+{
+	float v;
+	v = 4 / 3 * pi * r * r * r;
+	return v;
+}
+void main()
+{
+	float r;
+	
+	printf("ÇëÊäÈëÇòµÄ°ë¾¶r=");
+	scanf("%f", &r);
+
+	printf("c=%.2f\ns=%.2f\nv=%.2f\n", f1(r), f2(r), f3(r));
+	getch();
+}
+
+
+	

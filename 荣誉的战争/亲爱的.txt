@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+void main()
+{
+	char *p = "欢迎你回来";
+	char *q = "我亲爱的";
+	char sb[10];
+
+	printf("请输入你的姓名\n");
+	gets(sb);
+	puts(p, sb);
+	puts(q);
+	getch();
+}
+

@@ -1,0 +1,13 @@
+#include <stdio.h>
+
+void main()
+{
+	int * p, i, a[10];
+
+	p = a;
+	for(i = 0;i < 10;i++)
+		scanf("%d", p++);//此时不用取地址的符号
+	p = a;//将数组的首地址赋给p
+	for(i = 0;i < 10;i ++)
+		printf("%d ", * p++);
+}

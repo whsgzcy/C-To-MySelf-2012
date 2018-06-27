@@ -1,0 +1,22 @@
+#include <stdio.h>//输入五个学生的三门课成绩，求每个学生成绩的平均分和各科成绩的平均分
+
+void main()
+{
+	int i, j;
+	float v[3], aver, s = 0;
+	int a[5][3] = {{80, 75, 92}, {61, 65, 71}, {59, 63, 70}, {85, 87, 90}, {76, 77, 85}};
+
+	for(j = 0;j < 3;j++)
+	{
+		for(i = 0;i < 5;i++)
+			s = s + a[i][j];
+			v[j] = s / 5;
+			s = 0;
+	}
+	aver = 0;
+	for(j = 0;j < 3;j++)
+		aver += v[j];
+	aver = aver / 3;
+	printf("数学:%f\n英语:%f\n语文:%f\n", v[0], v[1], v[2]);
+	printf("各科总平均分:%f\n", aver);
+}

@@ -1,0 +1,20 @@
+#include <stdio.h>//输出100到200之间的素数
+#include <math.h>
+
+void main()
+{
+	int m, k, i, n = 0;
+
+	for(m = 101;m <= 200;m++)
+	{
+		k = sqrt(m);//开平方的函数
+		for(i = 2;i <= k;i++)
+			if(m % i == 0)
+				break;
+			if(i >= k + 1)
+			{
+				printf("%d ", m);
+				n = n + 1;
+			}
+	}
+}

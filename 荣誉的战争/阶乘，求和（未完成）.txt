@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+long ff(int n)
+{
+	long f;
+
+	if(n == 0 || n == 1)
+		f = 1;
+	else
+		f = ff(n - 1) * n;
+	return f;
+}
+void main()
+{
+    int n, sum = 0;
+	long y;
+
+	printf("请输入一个大于零的整数\n");
+	scanf("%d", &n);
+	if(n > 0)
+	{
+	y = ff(n);
+	printf("%d!=%1d\n", n, y);
+	}
+	getch();
+	
+}

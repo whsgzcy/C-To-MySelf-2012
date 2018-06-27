@@ -1,0 +1,56 @@
+#include <stdio.h>
+
+void main()
+{
+	int a[5] = {1, 2, 3, 4, 5};
+	int b[5] = {6, 7, 8, 9, 10};
+	int c[10];
+	int i = 0, j = 0, k = 0;
+
+	if(a[4] < b[0])//第一种特殊情况
+	{
+		for(i = 0; i < 5; i++, k++)
+		{
+			c[k] = a[i];
+		}
+		for(i = 0; i < 5 ,k < 10; i++, k++)
+		{
+			c[k] = b[i];
+		}
+	}
+	if(b[4] < a[0])//第二种特殊情况
+	{
+		for(i = 0; i < 5; i++, k++)
+		{
+			c[k] = b[i];
+		}
+		for(i = 0; i < 5 ,k < 10; i++, k++)
+		{
+			c[k] = a[i];
+		}
+	}
+	  while (i < 5, j < 5)
+	{
+		if(a[i] < b[j])
+		{
+			c[k] = a[i];
+			i++;
+			k++;
+		}
+		else 
+		{
+			c[k] = b[j];
+			j++;
+			k++;
+		}
+	}
+
+	for(k = 0; k < 10; k++)
+
+		printf("%d ", c[k]);
+
+		printf("\n");
+}
+
+	
+

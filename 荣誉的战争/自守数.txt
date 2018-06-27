@@ -1,0 +1,75 @@
+#include <stdio.h>
+#include <math.h>
+/*25 * 25 = 625*/
+void main()
+{
+	int n, i, k, j, last = 1;
+
+	for(n = 0; n < 200000; n++)
+	{
+		for(j = 1; j <= 2; j++)
+		{
+			if(n < 10)
+			{
+			last = last * n % 10;
+			}
+			else if(n >= 10 && n < 100)
+			{
+				last = last * n % 100;
+			}
+			else if(n >= 100 && n < 1000)
+			{
+				last = last * n % 1000;
+			}
+			else if(n >= 1000 && n < 10000)
+			{
+				last = last * n % 10000;
+			}
+			else if(n >= 10000 && n < 100000)
+			{
+				last = last * n % 100000;
+			}
+			else if(n >= 100000 && n <= 200000)
+			{
+				last = last * n % 1000000;
+			}
+		}
+		if(last == n)
+		{
+			printf("%ld ", last);
+			last = 1;
+		}
+		last = 1;
+	}	
+}
+
+
+
+#include <stdio.h>
+/*25 * 25 = 625*/
+void main()
+{
+	int i;
+	for(i = 0;i < 200000; i++)
+	{
+		if(i < 10)
+			if(i == i * i % 10)
+				printf("%d   ",i);
+		if(i >= 10 && i < 100)
+			if(i == i * i % 100)
+				printf("%d   ",i);
+		if(i >= 100 && i < 1000)
+			if(i == i * i % 1000)
+				printf("%d   ",i);
+		if(i >= 1000 && i < 10000)
+			if(i == i * i % 10000)
+				printf("%d   ",i);
+		if(i >= 10000 && i < 100000)
+			if(i == i * i % 100000)
+				printf("%d   ",i);
+		if(i >= 100000 && i < 1000000)
+			if(i == i * i % 1000000)
+				printf("%d   ",i);
+	}
+}
+

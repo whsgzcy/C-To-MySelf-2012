@@ -1,0 +1,88 @@
+#include <stdio.h>
+#include <malloc.h>
+int i;
+
+struct young 
+{
+	int n;
+	struct young *next;
+};
+
+struct young *creat()
+{
+	struct young *head;
+	struct young *p1, *p2;
+   
+	head = p2 = (struct young *)malloc(sizeof(struct young));
+	p2 -> next = NULL;
+	
+	printf("ÇëÊäÈëÆß¸öÔªËØ±àºÅ\n");
+
+	for(i = 1; i <=7; i++)
+	{
+		p1 = (struct young *)malloc(sizeof(struct young));
+		scanf("%d", &p1 -> n);
+		p1 -> next = NULL;
+		p2 -> next = p1;
+		p2 = p1;		
+	}
+	
+	p2 -> next = head->next;
+
+	return head;
+}
+
+/*
+void fun(struct young *head)
+{
+	struct young *p;
+	int j = 0;
+	i = 0;
+
+	while(j < 1000)
+	{
+		if(p -> n == 0)
+		{
+			p = p -> next;
+		}
+		else
+		{
+			j++;
+			if(j % 3 == 0)
+			{
+				i++;
+				p -> n = 0;
+				p = p -> next;
+			}
+			else
+			{
+				p = p -> next;
+			}
+		}
+		if(i == 6)
+			break;
+	}
+}
+
+  */
+void print(struct young *head)
+{
+	struct young *p,*first;
+	p=first = head->next;
+    
+	do
+	{
+		printf("%d ", p -> n);
+		p = p -> next;
+	}while(p!=first);
+	getch();
+}
+
+void main()
+{
+	struct young *head;
+	head = creat();
+//	fun(head);
+	print(head);
+	printf("\n");
+}

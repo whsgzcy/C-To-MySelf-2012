@@ -1,0 +1,52 @@
+#include <stdio.h>
+
+void main()
+{
+	int a[11];
+	int i, j, k, n;
+
+	for(i = 0; i < 10; i++)
+	{
+		scanf("%d", &a[i]);
+	}
+	for(i = 0; i < 9; i++)
+	{
+		for(j = 0; j < 9 - i; j++)
+		{
+			if(a[j] > a[j + 1])
+			{
+				k = a[j];
+				a[j] = a[j + 1];
+				a[j + 1] = k;
+			}
+		}
+	}
+	for(i = 0; i < 10; i++)
+	{
+		printf("%d ", a[i]);
+	}
+	printf("\n");
+
+	printf("请输入要插入的数:");
+	scanf("%d", &n);
+
+	for(i = 0; i < 10; i++)
+	{
+		if(n < a[i])
+		{
+			for(j = 9; j >= i; j--)
+			{
+				a[j + 1] = a[j];//从后面开始移
+			}
+			break;
+		}
+	
+	}
+		a[i] = n;
+		
+	for(i = 0; i < 11; i++)
+	{
+		printf("%d ", a[i]);
+	}
+	printf("\n");
+}

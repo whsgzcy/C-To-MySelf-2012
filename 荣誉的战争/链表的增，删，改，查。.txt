@@ -1,0 +1,313 @@
+#include <stdio.h>
+#include <malloc.h>
+#include <conio.h> 
+
+struct student 
+{
+	long num;
+	int score;
+
+	struct student *next ;
+};
+
+int n;
+
+struct student * creat() //创建一个有数据的表，其实也就是输入。
+{
+	struct student * head;
+	struct student * p1, * p2;
+
+	head = NULL;
+	n = 0;
+
+	p1 = p2 = (struct student * ) malloc (sizeof (struct student));
+
+	scanf("%ld%d", & p1 ->num, &p1 ->score);
+
+	while (p1 ->num != 0)
+	{
+		n = n + 1;
+
+		if(n == 1)
+
+			head = p1;
+
+		else 
+
+			p2 ->next = p1;
+
+		p2 = p1;
+
+		p1 = (struct student * ) malloc (sizeof (struct student));
+
+	    scanf("%ld%d", &p1 ->num, &p1 ->score);
+	}
+
+	p2 ->next = NULL;
+
+	return head;// 返回一个链表。因为下面调用。
+}
+
+void print(struct student * head) //输出链表。也就等于输出
+{
+	struct student * p;
+
+	printf("一共有%d个数， 分别为：\n", n);
+
+	p = head;
+
+	if(head != NULL)
+	{
+		while (p != NULL)
+		{
+			printf("%ld, %d\n", p ->num, p ->score);
+
+			p = p ->next;
+		}
+	}
+}
+
+struct student * del(struct student * head, long num)//开始删除，作为一个调用函数。
+{
+	struct student * p1, * p2;
+
+	if(head == NULL)
+	{
+		printf("此表为空表，不能实现删除。\n");
+
+		return head;
+	}
+
+	p1 = head;
+
+	while(num != p1 ->num && p1 ->next != NULL)// 在这里就是应用了链表的思想
+	{
+		p2 = p1;
+		p1 = p1 ->next; //结点的指向。
+	}
+
+	if(num == p1 ->num)
+	{
+		if(head == p1)
+
+			head = p1 ->next;
+
+		else 
+
+			p2 ->next = p1 ->next;
+
+		n = n -1;
+
+	}
+
+	else 
+
+		printf("你删除的学号不存在，请重新输入。\n");
+
+	return head;
+}
+
+struct student * insert(struct student * head, struct student * stu)
+{
+	struct student * p, * p1, * p2;
+
+	p = stu;
+	p1 = head;
+
+	if(head == NULL)
+	{
+		head = p;
+
+		p ->next = NULL;
+	}
+
+	else
+	{
+		while((p ->num > p1 ->num) && (p1 ->next != NULL))
+		{
+			p2 = p1;
+			p1 = p1 ->next;
+		}
+
+		if(p ->num <= p1 ->num)
+		{
+			if(head == p1)
+
+				head = p;
+
+			else
+
+				p2 ->next = p;
+
+			p ->next = p1;
+		}
+
+		else 
+		{
+			p1 ->next = p;
+			p ->next = NULL;
+		}
+
+	}
+
+	n = n + 1;
+  
+	return head;
+
+}
+
+struct student * locate(struct student * head, long num1)//查找。
+{
+	struct student * p;
+
+	if(head == NULL)
+
+		printf("此表为空表不能实现查找。\n");
+
+	p = head;
+
+	for(; p ->next != NULL; p = p ->next)
+	{
+		if(num1 == p ->num)
+
+			printf("你要查找的学号是：%ld;\n此学号的分数为:%d。\n", p ->num, p ->score);
+	}
+
+
+
+	/*while (num1 != p ->num && p ->next != NULL)
+	{
+		p = p ->next;
+	}
+
+	if(p ->next != NULL)
+
+
+        printf("你要查找的学号是：%ld;\n此学号的分数为:%d。\n", p ->num, p ->score);
+
+
+	else 
+
+		printf("I am so sorry , NO found\n");*/
+
+	return 0;
+}
+
+struct student * modify(struct student * head , struct student * stu1)//修改。
+{
+	struct student * p,* p1,* p2;
+
+	if(head == NULL)
+
+		printf("此表为空表不能实现修改。\n");
+
+	p = head;
+	p1 = stu1;
+
+	while(p1 ->num != p ->num && p ->next != NULL)
+	{
+		p2 = p;
+		p = p ->next;
+	}
+
+	if(p ->next != NULL)
+	{
+		if(head == p)
+
+			head = p1;
+
+		else
+
+			p2 ->next = p1;
+
+		p1 ->next = p ->next;
+	}
+
+	else
+
+		printf("你输入要查找的学号有误，请重新输入。\n");
+
+	return head;
+}
+
+
+void main()
+{
+	struct student * head, * stu, * stu1;// 以下全是调用函数和输出。
+
+	long num, num1;
+
+	head = creat();
+
+	print(head);
+
+	printf("请输入一个需要删除的学号：\n");
+
+	scanf("%ld", &num);
+
+	while(num != 0)
+	{
+		head = del(head, num);
+
+		print(head);
+
+		printf("请输入一个需要删除的学号：\n");
+
+    	scanf("%ld", &num);
+	}
+
+	printf("请输入你需要插入的学号和分数：\n");
+
+	stu = (struct student *) malloc (sizeof (struct student));
+
+	scanf("%ld%d", &stu ->num, &stu ->score);
+
+	while(stu ->num != 0)
+	{
+		head = insert(head, stu);
+
+		print(head);
+
+		printf("请输入你需要插入的学号和分数：\n");
+
+    	stu = (struct student *) malloc (sizeof (struct student));
+
+    	scanf("%ld%d", &stu ->num, &stu ->score);
+
+	}
+
+	printf("请输入一个你需要查找到学号:\n");
+
+	scanf("%ld", &num1);
+
+	while (num1 != 0)
+	{
+		locate(head, num1);
+
+        printf("请输入一个你需要查找到学号:\n");
+
+	    scanf("%ld", &num1);
+	}
+
+	printf("请输入一个需要修改的学号和分数：\n");
+
+	stu1 = (struct student *) malloc (sizeof (struct student));
+
+    scanf("%ld%d", &stu1 ->num, &stu1 ->score);
+
+	while (stu1 ->num != 0)
+	{
+		head = modify(head, stu1);
+
+		print(head);
+
+		printf("请输入一个需要修改的学号和分数：\n");
+
+	    stu1 = (struct student *) malloc (sizeof (struct student));
+
+        scanf("%ld%d", &stu1 ->num, &stu1 ->score);
+ 
+	}
+getch();
+
+}

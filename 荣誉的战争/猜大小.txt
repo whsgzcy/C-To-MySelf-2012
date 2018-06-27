@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void main()
+{
+	int i, magic, rand();
+
+	printf("请任意输入一个数\n");
+	scanf("%d",&i);
+	magic = rand()%100;
+	while(i != magic)
+	{
+	if(i > magic)
+		printf("大 You Win\n");
+	else if(i < magic)
+		printf("小 Game Over\n");
+	scanf("%d",&i);
+	}
+		printf("猜对了\n");
+
+}

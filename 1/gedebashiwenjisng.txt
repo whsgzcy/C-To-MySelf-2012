@@ -1,0 +1,81 @@
+#include "stdio.h"
+#include "math.h"
+
+int mom(int);
+int mim(int);
+
+
+main()
+{
+	int x;
+	FILE *fp_file=NULL;
+	char file_name[255]={0};
+	printf("输入文件名\n");
+	gets(file_name);
+	fp_file=fopen(file_name,"w+");
+	if(NULL==fp_file)
+		printf("打开失败\n");
+	else
+		printf("打开成功\n");
+	printf("输入内容:\n");
+	{
+	
+	printf("请输入大于1000的偶数:");
+	scanf("%d", &x);
+
+	if(x % 2 == 0 && x > 1000)
+		mim(x);
+	fprintf(fp_file,"%d=%d and %d",mim(x));
+	printf("%d =%d and %d",mim(x));
+	}
+
+
+ }
+
+//判断一个数是否为质数
+int mom(int a)
+{
+	int n = 0;
+	if (a < 2)
+	{
+		printf("输入错误\n");
+		return -1;
+	}
+	if (a == 2)
+	{
+		return 1;
+	}
+	for (n = 2; n <= sqrt(a) + 1; n++)
+	{
+		if (a % n ==  0)
+		{
+			return 0;
+		}
+	}
+	return 1;
+}
+
+//一个数是否能分解成两个质数
+int mim(int a)
+{
+	int j = 0;
+
+/*	if (a < 4)
+	{
+		printf("输入错误\n");
+		return -1;
+	}
+*/
+	for (j = 2; j < a-1; j++)
+	{
+		if(mom(j) && mom(a - j))
+		{
+			//return 1;
+			printf("%d is %d and %d\n", a, j, a -j);
+			if (j >= a - j) 
+				break;
+		}
+	}
+	return 0;
+}
+

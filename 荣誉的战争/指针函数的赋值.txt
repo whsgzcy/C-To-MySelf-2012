@@ -1,0 +1,14 @@
+#include <stdio.h>
+
+void main()
+{
+	int a, b;
+	int * pointer_1, * pointer_2;
+
+	a = 100;
+	b = 520;
+	pointer_1 = &a;//把变量a的地址赋给pointer_1
+	pointer_2 = &b;
+
+	printf("%d %d\n", * pointer_1, * pointer_2);
+}

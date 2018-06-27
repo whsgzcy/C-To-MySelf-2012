@@ -1,0 +1,26 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: 函数的调用 - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP5A.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/函数的调用.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"I:\一直不懂实训\函数的调用.c"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP5A.tmp" 
+<h3>Output Window</h3>
+Compiling...
+函数的调用.c
+I:\一直不懂实训\函数的调用.c(28) : warning C4013: 'getch' undefined; assuming extern returning int
+
+
+
+<h3>Results</h3>
+函数的调用.obj - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

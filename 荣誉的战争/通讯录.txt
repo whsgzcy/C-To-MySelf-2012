@@ -1,0 +1,25 @@
+#include <stdio.h>//еп╤о╩ьнд
+#include <string.h>
+
+struct person
+{
+	char name[10];
+	char address[50];
+	long phone;
+}person[2];
+
+void main()
+{
+	int i;
+
+	for(i = 0; i < 2; i++)
+	{
+		scanf("%s%s%d", &person[i].name, &person[i].address, &person[i].phone);
+	}
+	for(i = 0; i < 2; i++)
+	{
+		printf("%s %s %d ", person[i].name, person[i].address, person[i].phone);
+		printf("\n");
+	}
+}
+	

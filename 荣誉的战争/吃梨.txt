@@ -1,0 +1,13 @@
+#include <stdio.h>
+
+void main()
+{
+	int i;
+	int n = 1;
+
+	for(i = 17; i > 0; i--)
+	{
+		n = 2 * n + 2;
+		printf("%d ", n);
+	}
+}

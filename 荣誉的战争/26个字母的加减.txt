@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+
+void main()
+{
+	char str1[5];
+	char str2[5];
+	int l, m, i, sum1 = 0, sum2 = 0, k, n, p, s;
+
+	printf("请输入第一个五个以内的字符串\n");
+	gets(str1);
+	printf("请输入第二个五个以内的字符串\n");
+	gets(str2);
+
+	l = strlen(str1);
+	m = l;
+	n = strlen(str2);
+	p = n;
+
+	for(i = 0; i < l; i++)
+	{
+		k = pow(10, m - 1);
+		m--;
+		sum1 = sum1 + (str1[i] - 65) * k;
+	}
+
+	for(i = 0; i < n; i++)
+	{
+		k = pow(10, p - 1);
+		p--;
+		sum2 = sum2 + (str2[i] - 65) * k;
+	}
+
+	s = sum1 - sum2;
+	
+	printf("%s-%s=%d\n", str1, str2, s);
+
+
+}
+
+

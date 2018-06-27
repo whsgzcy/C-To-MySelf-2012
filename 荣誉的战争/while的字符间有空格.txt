@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+void main()
+{
+	char str1[50], str2[50];
+	int i, j;
+
+	printf("输入第一个字符串\n");
+	gets(str1);
+	printf("输入第二个字符串\n");
+	gets(str2);
+	i = j = 0;
+	while(str1[i] != '\0')
+		i++;
+	str1[i++] = ' ';
+	while((str1[i++] = str2[j++]) != '\0');
+	printf("string No.1->%s\n", str1);
+}
+
+
+	

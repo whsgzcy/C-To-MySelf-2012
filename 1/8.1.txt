@@ -1,0 +1,43 @@
+#include <stdio.h>
+
+
+void main()
+{
+	char a[20],b[20];
+	int i;
+	
+    printf("Enter a string:\n");
+	scanf("%s",a);
+	i=0;
+	do
+	{
+		b[i]=(a[i]>='a'&&a[i]<='z')?a[i]-'a'+'A':a[i];(判断是大小写字母）
+	}
+	while(a[i++]!='\0');
+	printf("string:\n%s\n",a);
+	printf("Copyed string:\n%s\n",b);
+}
+
+
+2. #include <stdio.h>
+#include"string.h"
+
+void main()
+{
+	char str[20];
+	strcpy(str,"hello");（赋值）
+	printf("%s",str);
+}
+3. #include <stdio.h>
+#include"string.h"
+
+void main()
+{
+	char str[20];
+	int l;
+	strcpy(str,"hello");
+	l = strlen(str) ;(统计字符串的长度）
+	printf("%d",l);
+}
+4.比较字符串大小，将字符串从大到小排列
+5字符指针变量与字符数组的比较。

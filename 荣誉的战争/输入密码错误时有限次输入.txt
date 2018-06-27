@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <string.h>
+
+void main()
+{
+	char str1[15] = "123456789";
+	char str2[15];
+	int i = 0;
+
+	printf("请输入密码\n");
+	gets(str2);
+	while(i != 3)
+	{
+		if(strcmp(str1, str2) == 0)
+		{
+			printf("输入正确!\n");
+			break;   
+		}
+		else
+		{
+			printf("请重新输入\n");
+			gets(str2);
+			i++;
+		}
+	}
+getch();
+}

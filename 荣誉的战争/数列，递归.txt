@@ -1,0 +1,21 @@
+#include <stdio.h>//1+2+3……
+
+int fun(int n)
+{
+	int s;
+
+	if(n == 1)
+		s = 1;
+	else
+		s = fun(n - 1) + n;
+	return s;
+}
+void main()
+{
+	int n;
+
+	printf("输入数列的项数:");
+	scanf("%d", &n);
+
+	printf("%d\n", fun(n));
+}

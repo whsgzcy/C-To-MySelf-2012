@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+void main()
+{
+	char a[20], b[20];
+	int i;
+
+	printf("输入一段字符串\n");
+	gets(a);
+	i = 0;
+	do{
+		b[i] = (a[i] >= 'a' && a[i] <= 'z') ? a[i] - 32 : a[i];/*？是条件表达式一符号表隔开规定*/
+	}while(a[i++] != '\0');
+	puts(a);
+	puts(b);
+	getch();
+}

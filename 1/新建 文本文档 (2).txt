@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+void main()
+{
+	int a[3][3], b[3];
+	int max, i, j;
+	{
+	    for(i = 0;i < 3; i++)
+			for(j = 0;j < 3; j++)
+				scanf("%d",&a[i][j]);
+	   
+	for(i = 0;i < 3; i++)
+	{
+	    a[i][0]=max;
+	   for(j = 0;j < 3;j++)
+    {
+        if(a[i][j]>max);
+	    a[i][j]=max;
+	   }
+	    b[i]=max;
+	}
+     for(i = 0;i < 3;i++)
+	}b[i]);
+}
+	
+
+		

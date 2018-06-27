@@ -1,0 +1,20 @@
+#include<stdio.h>
+
+int main()
+{
+	char c;
+
+	int upper = 0, lower = 0, dighit = 0;
+	printf("ÇëÈÎÒâÇëÊäÈë\n");
+	while((c = getchar()) != '\n')
+	{
+		if(c >= 'A'&&c <= 'Z')
+		upper++;
+		if(c >= 'a'&&c <= 'z')
+		lower++;
+		if(c >= '0'&&c <= '9')
+		dighit++;
+	} 
+		printf("upper=%d lower=%d dighit=%d\n",upper,lower,dighit);
+
+}

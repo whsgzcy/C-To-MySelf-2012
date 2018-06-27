@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+void main()
+{
+	int n, i = 0, j = 0, m;
+	int b[10];
+
+	printf("请输入一个整数:");
+	scanf("%d", &n);
+	printf("想转的进制的数:");
+	scanf("%d", &m);
+	while(n != 0)
+	{
+		b[j] = n % m;
+		n = n / m;
+		j++;
+	}
+	for(j = j - 1; j >= 0; j--)
+		printf("%d", b[j]);
+	
+}
